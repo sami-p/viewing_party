@@ -1,6 +1,6 @@
 language: ruby
 rbenv:
-- 2.5.3
+- 2.7.2
 addons:
   postgresql: 9.6
 script:
@@ -11,4 +11,3 @@ deploy:
   api_key:
   app:
   run: rails db:migrate
-os: osx
