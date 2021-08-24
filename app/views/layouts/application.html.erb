@@ -9,7 +9,14 @@
   </head>
 
   <body>
+    <nav>
+      <%= link_to 'Log In' %>
+      <%= link_to 'Register', new_user_path %>
+    </nav>
     <main>
+      <% flash.each do |name, msg| %>
+        <%= content_tag :div, msg, class: name %>
+      <% end %>
       <%= yield %>
     </main>
     <footer>
