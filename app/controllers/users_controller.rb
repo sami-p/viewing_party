@@ -10,7 +10,7 @@ class UsersController < ApplicationController
     new_user = User.new(user)
     if new_user.save
       flash[:success] = "Welcome, #{new_user.username}!"
-      redirect_to '/' #change to dashboard
+      redirect_to root_path #change to dashboard
     else 
       flash[:error] = "Please fill in all required fields"
       redirect_to new_user_path
@@ -19,10 +19,11 @@ class UsersController < ApplicationController
 
   def login
     user = User.find_by(username: params[:username])
+    require "pry"; binding.pry
     if user.authenticate(params[:password])
       session[:user_id] = user.id 
       flash[:success] = "Welcome, #{user.username}!"
-      redirect_to '/' #change to user dashboard 
+      redirect_to root_path #change to user dashboard 
     else 
       flash[:error] = "Sorry, please fill in a valid username and password."
       render :login_form
