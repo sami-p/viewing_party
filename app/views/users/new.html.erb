@@ -1,11 +1,11 @@
-<%= form_with model: @user do |form| %>
+<%= form_with model: @user, local: true do |form| %>
   <%= form.label :username, 'Username:' %>
   <%= form.text_field :username, id: :user_username %>
   <%= form.label :email, 'Email:' %>
   <%= form.text_field :email, id: :user_email %>
   <%= form.label :password, 'Password:' %>
-  <%= form.text_field :password, id: :user_password %>
+  <%= form.password_field :password, id: :password %>
   <%= form.label :password_confirmation, 'Password Confirmation:' %>
-  <%= form.text_field :password_confirmation, id: :user_password_confirmation %>
+  <%= form.password_field :password_confirmation, id: :password_confirmation %>
   <%= form.submit 'Join the Party' %>
 <% end %>
