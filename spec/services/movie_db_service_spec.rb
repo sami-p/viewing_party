@@ -9,9 +9,9 @@ RSpec.describe MovieDbService do
 
    top_movies = MovieDbService.top_movies_1_data
 
-   expect(top_movies).to be_a(Hash)
-   expect(top_movies).to have_key(:page)
-   expect(top_movies).to have_key(:results)
+   expect(top_movies).to be_a(Array)
+   expect(top_movies.length).to eq(1)
+   expect(top_movies.first.title).to eq("Evangelion: 3.0+1.0 Thrice Upon a Time")
   end
 
   it 'returns the top rated movies page 2 data' do
@@ -22,8 +22,8 @@ RSpec.describe MovieDbService do
 
    top_movies = MovieDbService.top_movies_2_data
 
-   expect(top_movies).to be_a(Hash)
-   expect(top_movies).to have_key(:page)
-   expect(top_movies).to have_key(:results)
+   expect(top_movies).to be_a(Array)
+   expect(top_movies.length).to eq(1)
+   expect(top_movies.first.title).to eq("The Dark Knight")
   end
 end
