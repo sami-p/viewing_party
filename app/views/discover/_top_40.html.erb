@@ -1,0 +1,11 @@
+<p>Top Movies</p>
+
+<% @movies1.each do |m| %>
+  <p><%= m.title %> <%= m.vote_average %></p>
+  <br>
+<% end %>
+
+<% @movies2.each do |m| %>
+  <p><%= m.title %> <%= m.vote_average %></p>
+  <br>
+<% end %>
