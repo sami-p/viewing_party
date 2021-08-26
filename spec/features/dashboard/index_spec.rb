@@ -15,4 +15,11 @@ RSpec.describe 'Dashboard' do
 
     expect(current_path).to eq('/discover')
   end
+
+  it 'can take the user to discover movies page' do 
+    click_on 'Discover'
+
+    expect(current_path).to eq('/discover')
+    expect(page).to have_content('Discover Movies!')
+  end
 end
