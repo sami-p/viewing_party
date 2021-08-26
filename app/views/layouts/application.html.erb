@@ -16,6 +16,10 @@
 
   <body>
     <main>
+      <% if current_user %>
+        <h1>My name is <%= current_user.username %>, and I like to party!</h1>
+      <% end %>
+
       <% flash.each do |name, msg| %>
         <%= content_tag :div, msg, class: name %>
       <% end %>

@@ -13,11 +13,11 @@ RSpec.describe "Logging In" do
 
     click_on "Log In"
 
-    expect(current_path).to eq(root_path)
+    expect(current_path).to eq(dashboard_index_path)
 
-    expect(page).to have_content("Welcome, #{user.username}")
+    expect(page).to have_content("My name is #{user.username}, and I like to party!")
   end
-  
+
   it "cannot log in with bad credentials" do
     user = User.create(username: "funbucket13", email: "funbucket@aol.com", password: "test", password_confirmation: "test")
 
