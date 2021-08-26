@@ -9,27 +9,27 @@ class UsersController < ApplicationController
     user[:username] = user[:username].downcase
     new_user = User.new(user)
     if new_user.save
+      session[:user_id] = new_user.id
       flash[:success] = "Welcome, #{new_user.username}!"
-      redirect_to root_path #change to dashboard
-    else 
+      redirect_to dashboard_index_path
+    else
       flash[:error] = "Please fill in all required fields"
       redirect_to new_user_path
-    end 
+    end
   end
 
   def login
     user = User.find_by(username: params[:username])
     if user.authenticate(params[:password])
-      session[:user_id] = user.id 
-      flash[:success] = "Welcome, #{user.username}!"
-      redirect_to root_path #change to user dashboard 
-    else 
+      session[:user_id] = user.id
+      redirect_to dashboard_index_path
+    else
       flash[:error] = "Sorry, please fill in a valid username and password."
       render :login_form
-    end 
-  end 
+    end
+  end
 
-  def login_form 
+  def login_form
   end
 
   private
