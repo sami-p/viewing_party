@@ -10,5 +10,9 @@ class User < ApplicationRecord
   validates :password_confirmation, presence: true
   validates_presence_of :password, require: true
 
-  has_secure_password 
-end 
+  has_secure_password
+
+  def self.search_email(params)
+    find_by(email: params)
+  end
+end
