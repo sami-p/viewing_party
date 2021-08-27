@@ -5,7 +5,7 @@ class MovieDbService
     page_one = JSON.parse(body, symbolize_names: true)
     page_one[:results].map do |movie|
       Movies.new(movie)
-    end 
+    end
   end
 
   def self.top_movies_2_data
@@ -14,6 +14,6 @@ class MovieDbService
     page_two = JSON.parse(body, symbolize_names: true)
     page_two[:results].map do |movie|
       Movies.new(movie)
-    end 
+    end
   end
 end
