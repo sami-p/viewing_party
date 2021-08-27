@@ -22,15 +22,46 @@ RSpec.describe 'Dashboard' do
 
       visit dashboard_index_path
     end
-    it 'has a search to add a friend by email'
-    it 'adds a new friend to friend list'
-    it 'returns an error if friend is not in system'
+
+    it 'has a search to add a friend by email' do
+      expect(page).to have_field(:search)
+      expect(page).to have_button('Add Friend')
+    end
+
+    it 'adds a new friend to friend list' do
+      user = User.create(username: "july5", email: "july5@example.com", password: "redwhiteandblue07", password_confirmation: "redwhiteandblue07")
+
+      fill_in :search, with: user.email
+      click_button "Add Friend"
+
+      @user_1.reload
+      allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@user_1)
+      visit dashboard_index_path
+
+      expect(current_path).to eq(dashboard_index_path)
+      within(".friends") do
+        expect(page).to have_content(user.username)
+      end
+    end
+
+    it 'returns an error if friend is not in system' do
+      fill_in :search, with: "july5@example.com"
+      click_button "Add Friend"
+
+      expect(current_path).to eq(dashboard_index_path)
+      expect(page).to have_content("I'm sorry your friend cannot be found")
+      within(".friends") do
+        expect(page).to_not have_content("july5")
+      end
+    end
+
     it 'lists all friends' do
       within(".friends") do
         expect(page).to have_content(@user_2.username)
         expect(page).to have_content(@user_3.username)
       end
     end
+
     it 'displays message if there are no friends' do
       user = User.create(username: "july5", email: "july5@example.com", password: "redwhiteandblue07", password_confirmation: "redwhiteandblue07")
 
