@@ -5,7 +5,8 @@ class Movies
               :tagline,
               :overview,
               :link,
-              :genre
+              :genre,
+              :id
 
   def initialize(data)
     @title        = data[:title]
@@ -14,5 +15,6 @@ class Movies
     @tagline      = data[:tag_line]
     @overview     = data[:overview]
     @link         = data[:homepage]
+    @id           = data[:id]
   end 
 end

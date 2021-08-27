@@ -15,8 +15,7 @@
     </tr>
     <% @top_movies.each_with_index do |m, idx| %>
         <td><%= "#{idx + 1}" %></td>
-        <td><%= link_to m.title, '/', method: :get %></td>
-        <td><%= m.title %></td>
+        <td><%= link_to m.title, dashboard_index_path, method: :get %></td>
         <td><%= m.vote_average %></td>
       </tr>
     <% end %>
