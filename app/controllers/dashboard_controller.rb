@@ -1,5 +1,5 @@
 class DashboardController < ApplicationController
   def index
-    @friendships = Friendship.new
+    @user = User.find_by(params[:id])
   end
 end

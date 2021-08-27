@@ -1,3 +1,6 @@
+
+<%= link_to 'Discover', '/discover', method: :get %>
+
 <section class="friends">
   <%= form_with model: @friendships, method: :post, local: true do |f| %>
     <%= f.text_field :search, id: :search, :value => "Friend's Email" %>

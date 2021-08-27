@@ -1,0 +1,24 @@
+<p>Top Movies</p>
+
+<table class="table table-striped">
+  <table class="table table-striped navbar-custom">
+  <thead class="custom" text-align="center" align="center">
+    <tr>
+      <th  colspan="4" style="font-family: Quicksand;">Top 40 Movies</th>
+    </tr>
+  </thead >
+  <tbody id="top-movies">
+    <tr id="movie-table-headers">
+      <th>Rank</th>
+      <th>Title</th>
+      <th>Average Vote</th>
+    </tr>
+    <% @top_movies.each_with_index do |m, idx| %>
+        <td><%= "#{idx + 1}" %></td>
+        <td><%= link_to m.title, dashboard_index_path, method: :get %></td>
+        <td><%= m.vote_average %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+

@@ -20,3 +20,7 @@ Viewing party is an application in which users can explore movie options and cre
 - Rails 5.2.5
 
 Example wireframes to follow are found [here](https://backend.turing.io/module3/projects/viewing_party/wireframes)
+
+
+## Questions for next check-in 
+  1. most legit way to combine seperate pages into one table(top 40 movies)
