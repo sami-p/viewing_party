@@ -1,4 +1,8 @@
 <section class="friends">
+  <%= form_with model: @friendships, method: :post, local: true do |f| %>
+    <%= f.text_field :search, id: :search, :value => "Friend's Email" %>
+    <%= f.submit "Add Friend" %>
+  <% end %>
   <h3>Friends</h3>
   <% if current_user.friends.empty? %>
     <p>You currently have no friends.</p>
