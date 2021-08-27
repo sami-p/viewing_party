@@ -4,9 +4,8 @@ Rails.application.routes.draw do
   resources :users, only: [:new, :create]
   resources :dashboard, only: [:index]
   resources :friendships, only: [:create]
+  resources :discover, only: [:index]
 
   get '/login', to: 'users#login_form'
   post '/login', to: 'users#login'
-
-  get '/discover', to: 'discover#index'
 end
