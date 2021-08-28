@@ -58,7 +58,7 @@ RSpec.describe MovieDbService do
 
       expect(movie_search).to be_a(Array)
       expect(movie_search.length).to eq(20)
-      expect(movie_search.first.id).to eq(559907)
+      expect(movie_search.first.title).to eq("The Green Knight")
     end
   end
 end

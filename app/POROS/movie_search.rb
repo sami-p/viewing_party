@@ -1,9 +1,9 @@
 class MovieSearch
-  attr_reader :id, 
-              :name
+  attr_reader :id,
+              :title
 
   def initialize(data)
-    @name = data[:name]
-    @id   = data[:id]
+    @title = data[:title]
+    @id    = data[:id]
   end
-end 
+end
