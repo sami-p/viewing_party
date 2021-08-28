@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   resources :dashboard, only: [:index]
   resources :friendships, only: [:create]
   resources :discover, only: [:index]
+  resources :movies, only: [:index, :show]
 
   get '/login', to: 'users#login_form'
   post '/login', to: 'users#login'
