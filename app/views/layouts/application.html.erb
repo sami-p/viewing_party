@@ -56,9 +56,17 @@
                 <a class="nav-link" href=<%= discover_index_path %>>Discover</a>
               </li>
           </ul>
-          <span class="navbar-text navbar-brand" style="color: white; font-size: xx-large; ">
-            <%= current_user.username %>
-          </span>
+              <li class="nav-item dropdown">
+    
+                <a class="nav-link dropdown-toggle navbar-brand" style="color: white; font-size: xx-large;" href="#" id="navbarScrollingDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  <%= current_user.username %>
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
+                  <li><a class="dropdown-item" href="#">Logout</a></li>
+                  <li><hr class="dropdown-divider"></li>
+                  <li><a class="dropdown-item" href="#">Discover a Random Movie</a></li>
+                </ul>
+              </li>
         </div>
       </div>
    </nav>
