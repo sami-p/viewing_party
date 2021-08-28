@@ -30,6 +30,12 @@ RSpec.describe 'Movie Details Page' do
     expect(current_path).to eq(movie_path(155))
     expect(page).to have_content('Reviews')
     expect(page).to have_content('tricksy')
-save_and_open_page
   end
+
+  it 'displays the cast' do 
+    click_on 'The Dark Knight'
+
+    expect(page).to have_content('Bruce Wayne')
+    expect(page).to have_content('Christian Bale')
+  end 
 end
