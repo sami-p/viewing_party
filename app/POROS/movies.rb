@@ -1,5 +1,5 @@
-class Movies 
-  attr_reader :title, 
+class Movies
+  attr_reader :title,
               :vote_average,
               :release_date,
               :tagline,
@@ -16,5 +16,5 @@ class Movies
     @overview     = data[:overview]
     @link         = data[:homepage]
     @id           = data[:id]
-  end 
+  end
 end
