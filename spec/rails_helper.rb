@@ -13,6 +13,11 @@ Shoulda::Matchers.configure do |config|
     with.library :rails
   end
 end
+VCR.configure do |config|
+  config.cassette_library_dir = 'spec/fixtures/vcr_cassettes'
+  config.hook_into :webmock
+  config.filter_sensitive_data('<MOVIE_API>') { ENV['MOVIE_API'] }
+end
 
 # Requires supporting ruby files with custom matchers and macros, etc, in
 # spec/support/ and its subdirectories. Files matching `spec/**/*_spec.rb` are
