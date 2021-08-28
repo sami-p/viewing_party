@@ -48,7 +48,7 @@ RSpec.describe "Discover Movies Page" do
     end
   end
 
-  it 'can search for movies by keyword' do 
+  it 'can search for movies by keyword' do
     VCR.use_cassette('movie_db_discover_movies') do
       visit '/discover'
     end
@@ -58,7 +58,6 @@ RSpec.describe "Discover Movies Page" do
       click_on 'Search'
 
       expect(page).to have_content('Results')
-      save_and_open_page
     end
   end
 end

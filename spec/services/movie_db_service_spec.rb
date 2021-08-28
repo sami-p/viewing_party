@@ -51,4 +51,14 @@ RSpec.describe MovieDbService do
       expect(movie_cast.first.name).to eq('Christian Bale')
     end
   end
+
+  it 'returns movie by search keyword' do
+    VCR.use_cassette('movie_db_movie_search') do
+      movie_search = MovieDbService.movie_search('Knight')
+
+      expect(movie_search).to be_a(Array)
+      expect(movie_search.length).to eq(20)
+      expect(movie_search.first.id).to eq(559907)
+    end
+  end
 end
