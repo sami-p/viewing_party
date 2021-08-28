@@ -3,8 +3,14 @@ Rails.application.routes.draw do
   root 'welcome#index'
   resources :users, only: [:new, :create]
   resources :dashboard, only: [:index]
+  resources :friendships, only: [:create]
+  resources :discover, only: [:index]
+  resources :movies, only: [:index, :show]
   resources :parties, only: [:new, :create]
+
 
   get '/login', to: 'users#login_form'
   post '/login', to: 'users#login'
+
+  get '/logout', to: 'users#logout'
 end

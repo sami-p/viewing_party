@@ -1,14 +1,18 @@
 class User < ApplicationRecord
-  has_many :friendships
+  has_many :friendships, dependent: :destroy
   has_many :friends, through: :friendships
-  has_many :parties
-  has_many :party_guests
+  has_many :parties, dependent: :destroy
+  has_many :party_guests, dependent: :destroy
   has_many :parties, through: :party_guests
 
   validates :username, uniqueness: true, presence: true
   validates :email, uniqueness: true, presence: true
   validates :password_confirmation, presence: true
-  validates_presence_of :password, require: true
+  validates :password, presence: true
 
-  has_secure_password 
-end 
+  has_secure_password
+
+  def self.search_email(params)
+    find_by(email: params)
+  end
+end

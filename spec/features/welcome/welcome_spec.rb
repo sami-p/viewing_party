@@ -17,7 +17,7 @@ RSpec.describe 'Welcome Page' do
   it 'has a log in button' do
     visit root_path
 
-    expect(page).to have_link('Log In')
+    expect(page).to have_link('Login')
   end
 
   it 'has a button to register' do
@@ -28,7 +28,7 @@ RSpec.describe 'Welcome Page' do
 
   it 'can take user to login page' do 
     visit root_path
-    click_on 'Log In'
+    click_on 'Login'
 
     expect(current_path).to eq(login_path)
   end
