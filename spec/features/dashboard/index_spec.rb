@@ -84,5 +84,18 @@ RSpec.describe 'Dashboard' do
         expect(page).to_not have_content(@user_3.username)
       end
     end
+
+    it 'can log user out' do 
+      user = User.create(username: "july5", email: "july5@example.com", password: "redwhiteandblue07", password_confirmation: "redwhiteandblue07")
+
+      allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
+
+      visit dashboard_index_path
+
+      expect(page).to have_content('july5')
+      
+      click_on 'Logout'
+      expect(current_path).to eq(root_path)
+    end
   end
 end

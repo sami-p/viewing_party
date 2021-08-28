@@ -16,8 +16,63 @@
   </head>
 
   <body>
+  <% if current_user.nil? %>
+    <nav class="navbar navbar-expand-lg navbar-light aqua">
+    <div class="container-fluid">
+      <a class="navbar-brand" style="color: white; font-size: xx-large;" href="/">Viewing Party</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarText">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href=<%= login_path %>>Login</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href=<%= new_user_path %>>Register</a>
+          </li>
+        </ul>
+        <span class="navbar-text navbar-brand" style="color: white; font-size: x-large; ">
+          Netflix n chill
+        </span>
+      </div>
+    </div>
+  </nav>
+  <% else %>
+    <nav class="navbar navbar-expand-lg navbar-light aqua">
+      <div class="container-fluid">
+        <a class="navbar-brand" style="color: white; font-size: x-large;" href="/">Viewing Party</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarText">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            </li>
+              <li class="nav-item">
+                <a class="nav-link" href=<%= dashboard_index_path %>>Dashboard</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href=<%= discover_index_path %>>Discover</a>
+              </li>
+          </ul>
+              <li class="nav-item dropdown">
+    
+                <a class="nav-link dropdown-toggle navbar-brand" style="color: white; font-size: xx-large;" href="#" id="navbarScrollingDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  <%= current_user.username %>
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
+                  <li><a class="dropdown-item" href=<%=logout_path%>>Logout</a></li>
+                  <li><hr class="dropdown-divider"></li>
+                  <li><a class="dropdown-item" href="#">Discover a Random Movie</a></li>
+                </ul>
+              </li>
+        </div>
+      </div>
+   </nav>
+  <% end %> 
     <main>
-      <% if current_user %>
+      <% if !current_user.nil? %>
         <h1>My name is <%= current_user.username %>, and I like to party!</h1>
       <% end %>
 

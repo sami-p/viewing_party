@@ -24,3 +24,4 @@ Example wireframes to follow are found [here](https://backend.turing.io/module3/
 
 ## Questions for next check-in 
   1. most legit way to combine seperate pages into one table(top 40 movies)
+  2. logout link not destroying session in rspec
