@@ -38,6 +38,7 @@ group :test do
   gem 'shoulda-matchers'
   gem 'webmock'
   gem 'vcr'
+  gem 'faraday'
 end
 
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
