@@ -53,7 +53,12 @@ RSpec.describe "Discover Movies Page" do
       visit '/discover'
     end
     VCR.use_cassette('movie_db_search_movies') do
+      fill_in :movie_search, with: 'Dark'
+
       click_on 'Search'
+
+      expect(page).to have_content('Results')
+      save_and_open_page
     end
   end
 end

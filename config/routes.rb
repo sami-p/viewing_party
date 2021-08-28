@@ -7,6 +7,9 @@ Rails.application.routes.draw do
   resources :discover, only: [:index]
   resources :movies, only: [:index, :show]
 
+  post '/discover', to: 'discover#index'
+
+
   get '/login', to: 'users#login_form'
   post '/login', to: 'users#login'
 
