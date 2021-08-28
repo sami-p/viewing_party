@@ -1,0 +1,15 @@
+<h1>Movie Show Page</h1>
+
+<%= @movie_details.title %>
+<%= @movie_details.vote_average %>
+<%= @movie_details.runtime %>
+
+<h2>Reviews</h2>
+
+
+<% @reviews.each do |r| %>
+  <h2><%= r.author %></h2>
+  <br>
+  <%= r.content %>
+  <br>
+<% end %>
