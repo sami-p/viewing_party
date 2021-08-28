@@ -1,0 +1,21 @@
+<h2>Your Party's Featured Film: </h2>
+
+<%= form_with model: @party, url: new_party_path, method: :post, local: true do |form| %>
+  <%= form.label 'Duration: ' %>
+  <%= form.text_field :duration %>
+  <br>
+  <%= form.label 'Date: ' %>
+  <%= form.date_field :date %>
+  <br>
+  <%= form.label 'Party Time:' %>
+  <%= form.time_field :start_time %>
+  <br>
+  <% unless @friends == nil %>
+    <%= form.label 'Friends Invited:' %>
+    <% @friends.each do |friend| %>
+      <%= check_box("Friend", friend.id) %>
+      <%= friend.email %>
+    <% end %>
+  <% end %>
+  <%= form.submit "Let's Party" %>
+<% end %>
