@@ -1,8 +1,16 @@
-<h1><%= @movie_details.title %></h1>
+<html>
+<head>
+<style>
+body {
+  background-image: image-url(<%= @movie_details.render_image %>);
+}
+</style>
+</head>
 
-<%= @movie_details.title %>
-<%= @movie_details.vote_average %>
-<%= @movie_details.runtime %>
+<h1 style="text-align: center;"><%= @movie_details.title %></h1>
+
+
+<h2 style="text-align: center;"> Average Vote: <%= @movie_details.vote_average %> || Runtime: <%= @movie_details.runtime %></h2>
 
 <br>
 <br>
