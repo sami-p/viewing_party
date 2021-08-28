@@ -47,4 +47,13 @@ RSpec.describe "Discover Movies Page" do
       expect(page).to have_content("8.8")
     end
   end
+
+  it 'can search for movies by keyword' do 
+    VCR.use_cassette('movie_db_discover_movies') do
+      visit '/discover'
+    end
+    VCR.use_cassette('movie_db_search_movies') do
+      click_on 'Search'
+    end
+  end
 end
