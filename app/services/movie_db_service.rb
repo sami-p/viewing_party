@@ -16,4 +16,30 @@ class MovieDbService
       Movies.new(movie)
     end
   end
+
+  def self.get_movie(movie_id)
+    response = Faraday.get("https://api.themoviedb.org/3/movie/#{movie_id}?api_key=#{ENV['MOVIE_API']}&language=en-US")
+    body = response.body 
+    details = JSON.parse(body, symbolize_names: true)
+    Movie.new(details)
+  end
+
+  def self.list_reviews(movie_id)
+    response = Faraday.get("https://api.themoviedb.org/3/movie/#{movie_id}/reviews?api_key=#{ENV['MOVIE_API']}&language=en-US")
+    body = response.body 
+    reviews = JSON.parse(body, symbolize_names: true)
+    reviews[:results].map do |review|
+      MovieReview.new(review)
+    end
+  end 
+
+  def self.get_cast(movie_id)
+    response = Faraday.get("https://api.themoviedb.org/3/movie/#{movie_id}/credits?api_key=#{ENV['MOVIE_API']}&language=en-US")
+    body = response.body
+    cast = JSON.parse(body, symbolize_names: true)
+    cast[:cast][0..9].map do |actor| 
+      MovieCast.new(actor)
+    end 
+  end 
 end
+
