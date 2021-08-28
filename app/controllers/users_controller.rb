@@ -1,5 +1,4 @@
 class UsersController < ApplicationController
-
   def new
     @user = User.new
   end
@@ -13,7 +12,7 @@ class UsersController < ApplicationController
       flash[:success] = "Welcome, #{new_user.username}!"
       redirect_to dashboard_index_path
     else
-      flash[:error] = "Please fill in all required fields"
+      flash[:error] = 'Please fill in all required fields'
       redirect_to new_user_path
     end
   end
@@ -24,13 +23,12 @@ class UsersController < ApplicationController
       session[:user_id] = user.id
       redirect_to dashboard_index_path
     else
-      flash[:error] = "Sorry, please fill in a valid username and password."
+      flash[:error] = 'Sorry, please fill in a valid username and password.'
       render :login_form
     end
   end
 
-  def login_form
-  end
+  def login_form; end
 
   private
 
