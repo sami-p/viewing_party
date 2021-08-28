@@ -41,5 +41,15 @@ class MovieDbService
       MovieCast.new(actor)
     end 
   end 
+
+  def self.movie_search(keyword) 
+    return if keyword.nil?
+    response = Faraday.get("https://api.themoviedb.org/3/search/company?api_key=#{ENV['MOVIE_API']}&query=#{keyword}&page=1")
+    body = response.body
+    results = JSON.parse(body, symbolize_names: true)
+    results[:results].map do |r|
+      MovieSearch.new(r)
+    end
+  end
 end
 
