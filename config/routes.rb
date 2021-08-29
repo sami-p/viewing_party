@@ -9,6 +9,9 @@ Rails.application.routes.draw do
     resources :parties, only: [:new, :create]
   end
 
+  post '/discover', to: 'discover#index'
+
+
   get '/login', to: 'users#login_form'
   post '/login', to: 'users#login'
 
