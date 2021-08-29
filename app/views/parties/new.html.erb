@@ -1,10 +1,10 @@
-<h2>Your Party's Featured Film: </h2>
+<h2>Your Party's Featured Film: <%= @movie.title %></h2>
 
 <%= form_with model: @party, url: new_party_path, method: :post, local: true do |form| %>
-  <%= form.label 'Duration: ' %>
+  <%= form.label 'Duration:' %>
   <%= form.text_field :duration %>
   <br>
-  <%= form.label 'Date: ' %>
+  <%= form.label 'Date:' %>
   <%= form.date_field :date %>
   <br>
   <%= form.label 'Party Time:' %>
