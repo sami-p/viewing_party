@@ -1,9 +1,6 @@
 class DiscoverController < ApplicationController
   def index
-    @movies1 = MovieDbService.top_movies_1_data
-    @movies2 = MovieDbService.top_movies_2_data
-    @top_movies = (@movies1 + @movies2).flatten
-
+    @top_movies = MovieDbService.top_40
 
     @movie_search_results = MovieDbService.movie_search(params[:movie_search])
   end
