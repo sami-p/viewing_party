@@ -9,14 +9,18 @@ RSpec.describe 'New Viewing Party Page' do
 
     # Figure out API / VCR and cassette usage
 
-    # VCR.use_cassette('movie_db_movie_details') do
-    #   click_on "GoodFellas"
-    # end
-    visit new_movie_party_path(@movie.id)
+    VCR.use_cassette('movie_db_movie_party') do
+      visit new_movie_party_path(@movie.id)
+      # click_on "GoodFellas"
+    end
   end
 
-  xit 'displays the movie title' do
-    expect(page).to have_content(@movie.title)
+  it 'displays the movie title' do
+    save_and_open_page
+    VCR.use_cassette('movie_db_movie_party') do
+      visit new_movie_party_path(@movie.id)
+      expect(page).to have_content(@movie.title)
+    end
   end
 
   describe 'New Viewing Party Form' do
@@ -48,7 +52,7 @@ RSpec.describe 'New Viewing Party Page' do
       @user.friends << @user_4
 
       fill_in 'Duration:', with: 150
-      fill_in 'Date:' with: '09/14/21'
+      fill_in 'Date:', with: '09/14/21'
       fill_in 'Party Time:', with: '4:00 PM'
 
       check "#{@user_2.username}"
@@ -70,7 +74,7 @@ RSpec.describe 'New Viewing Party Page' do
       @user.friends << @user_4
 
       # Tests blank duration field : make sure to create default movie runtime functionality
-      fill_in 'Date:' with: '09/14/21'
+      fill_in 'Date:', with: '09/14/21'
       fill_in 'Party Time:', with: '4:00 PM'
 
       check "#{@user_2.username}"
@@ -94,7 +98,7 @@ RSpec.describe 'New Viewing Party Page' do
       # Set up duration field with verification of duration > movie.runtime
       # Set up flash message that the duration must be greater than or equal to the movie runtime
       fill_in 'Duration:', with: 100
-      fill_in 'Date:' with: '09/14/21'
+      fill_in 'Date:', with: '09/14/21'
       fill_in 'Party Time:', with: '4:00 PM'
 
       check "#{@user_2.id}"
@@ -102,7 +106,7 @@ RSpec.describe 'New Viewing Party Page' do
       check "#{@user_4.id}"
 
       click_on "Let's Party"
-      expect(current_path).to eq(new_movie_party_path(@movie.id)
+      expect(current_path).to eq(new_movie_party_path(@movie.id))
       expect(page).to have_content('Cannot create Viewing Party if duration is less than movie runtime. Please enter correct duration.')
     end
 
@@ -121,7 +125,7 @@ RSpec.describe 'New Viewing Party Page' do
       fill_in 'Duration:', with: 150
       fill_in 'Party Time:', with: '4:00 PM'
 
-      expect(current_path).to eq(new_movie_party_path(@movie.id)
+      expect(current_path).to eq(new_movie_party_path(@movie.id))
       expect(page).to have_content('Please fill in all necessary fields to create a new party. Thank you!')
     end
 

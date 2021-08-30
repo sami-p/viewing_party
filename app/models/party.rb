@@ -4,5 +4,5 @@ class Party < ApplicationRecord
   has_many :party_guests, dependent: :destroy
   has_many :users, through: :party_guests
 
-  validates_presence_of :date_time
+  validates_presence_of :start_time
 end

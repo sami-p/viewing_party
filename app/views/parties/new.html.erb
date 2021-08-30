@@ -1,6 +1,6 @@
 <h2>Your Party's Featured Film: <%= @movie.title %></h2>
 
-<%= form_with model: @party, url: new_party_path, method: :post, local: true do |form| %>
+<%= form_with model: @party, url: new_movie_party_path(@movie.id), method: :post, local: true do |form| %>
   <%= form.label 'Duration:' %>
   <%= form.text_field :duration %>
   <br>
