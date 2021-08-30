@@ -5,9 +5,15 @@ class PartiesController < ApplicationController
     @friends = current_user.friends
   end
 
-# Change to drop down for date and time ?
   def create
+    party = Party.create(party_params)
     require "pry"; binding.pry
-    party[:start_time] = (params[:date], params[:start_time])
+    party_guests = PartyGuests.create(party_guest_params)
   end
-end 
+
+  private
+
+  def party_params
+    params.require(:party).permit(:duration, :start_time, :movie_title, :host_id)
+  end
+end
