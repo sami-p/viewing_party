@@ -9,8 +9,8 @@
   <br>
   <%= form.label 'Party Time:' %>
   <%= form.time_field :start_time %>
-  <%= form.hidden_field :movie, value: @movie.title %>
-  <%= form.hidden_field :host_id, valud: current_user.id %>
+  <%= form.hidden_field :movie_title, value: @movie.title %>
+  <%= form.hidden_field :host_id, value: current_user.id %>
   <br>
   <% unless @friends == nil %>
     <%= form.label 'Friends Invited:' %>
