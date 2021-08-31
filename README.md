@@ -27,7 +27,7 @@ Find the [project spec here](https://github.com/turingschool-examples/little-est
 
 ### <ins>Overview</ins>
 
-[Little Esty Shop](https://github.com/bfl3tch/little-esty-shop) is a 10-day, 4 person project, during Mod 2 of 4 for Turing School's Back End Engineering Program.
+[Little Esty Shop](https://github.com/sami-p/viewing_party) is a 10-day, 3 person project, during Mod 3 of 4 for Turing School's Back End Engineering Program.
 
 Our challenge was to build a functioning web app consisting of multiple relational databases to model the popular e-commerce web site *Etsy*.
 
@@ -40,7 +40,7 @@ Learning goals and areas of focus consisted of:
 - Create instance and class methods on a Rails model that use ActiveRecord methods and helpers
 - Write model and feature tests that fully cover data logic and potential user behavior
 
-[Technical Requirements](https://github.com/turingschool-examples/little-esty-shop/blob/main/doc/user_stories.md)
+[Technical Requirements](https://github.com/turingschool-examples/viewing_party/projects/1)
 
 ### <ins>Tools Used</ins>
 - Ruby 2.7.2
@@ -82,7 +82,7 @@ Learning goals and areas of focus consisted of:
 <!-- MARKDOWN LINKS & IMAGES -->
 
 [contributors-shield]: https://img.shields.io/github/contributors/bfl3tch/little-esty-shop.svg?style=flat-square
-[contributors-url]: https://github.com/bfl3tch/little-esty-shop/graphs/contributors
+[contributors-url]: https://github.com/sami-p/viewing_party
 [forks-shield]: https://img.shields.io/github/forks/bfl3tch/little-esty-shop.svg?style=flat-square
 [forks-url]: https://github.com/bfl3tch/little-esty-shop/network/members
 [stars-shield]: https://img.shields.io/github/stars/bfl3tch/little-esty-shop.svg?style=flat-square
