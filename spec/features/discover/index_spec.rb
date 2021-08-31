@@ -29,7 +29,6 @@ RSpec.describe "Discover Movies Page" do
     VCR.use_cassette('movie_db_discover_movies') do
       click_on 'Discover Top 40 Movies'
 
-      expect(page).to have_content("Top Movies")
       expect(page).to_not have_content('Discover Top 40 Movies')
     end
   end
@@ -41,7 +40,6 @@ RSpec.describe "Discover Movies Page" do
     VCR.use_cassette('movie_db_discover_movies') do
       click_on 'Discover Top 40 Movies'
 
-      expect(page).to have_content("Top Movies")
       expect(page).to_not have_content('Discover Top 40 Movies')
       expect(page).to have_content("Evangelion: 3.0+1.0 Thrice Upon a Time")
       expect(page).to have_content("8.8")
