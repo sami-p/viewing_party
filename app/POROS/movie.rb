@@ -3,7 +3,6 @@ class Movie
               :vote_average,
               :id,
               :runtime,
-              :image,
               :backdrop_path,
               :genres
 
@@ -17,9 +16,9 @@ class Movie
     @genres           = get_genre(data[:genres])
   end     
 
-  # def render_image
-  #   "https://image.tmdb.org/t/p/w500#{@backdrop_path}" unless @poster.nil?
-  # end
+  def render_image
+    "https://image.tmdb.org/t/p/w500#{@backdrop_path}" unless @poster.nil?
+  end
 
   def get_genre(data)
     data.map do |d| 

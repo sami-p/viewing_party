@@ -44,4 +44,11 @@ class MovieFacade
     details = MovieDbService.get_movie(movie_id)
     Movie.new(details)
   end 
+
+  def upcoming_movies 
+    movies = MovieDbService.upcoming_movies
+    movies[:results].map do |movie|
+      UpcomingMovies.new(movie)
+    end 
+  end 
 end

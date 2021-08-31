@@ -49,4 +49,13 @@ RSpec.describe MovieFacade do
      expect(top_movies.first.title).to eq("Dilwale Dulhania Le Jayenge")
     end
   end
+
+  it 'returns upcoming movies' do
+    VCR.use_cassette('movie_db_upcoming_movies') do
+     upcoming_movies = MovieFacade.new.upcoming_movies
+
+     expect(upcoming_movies).to be_a(Array)
+     expect(upcoming_movies.length).to eq(20)
+    end
+  end
 end 
