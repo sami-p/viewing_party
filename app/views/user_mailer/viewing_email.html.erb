@@ -3,18 +3,18 @@
     <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
   </head>
   <body>
-    <h1><%= @user.name %> have been invited to a viewing party!</h1>
+    <h1><%= @user.username %> have been invited to a viewing party!</h1>
     <p>
-      You have been invited to <%= @host.name %> viewing party!
+      You have been invited to <%= @party.host.username %> viewing party!
     </p>
     <p>
       Movie details<br>
       --------------------------
     </p>
-    <p>Movie Title: <%= @movie.title %></p>
-    <p>Duration of party: <%= @movie.duration %></p>
-    <p>Day: <%= @movie.day %></p>
-    <p>Start Time: <%= @movie.time %></p>
+    <p>Movie Title: <%= @party.movie_title %></p>
+    <p>Duration of party: <%= @party.duration %></p>
+    <p>Date: <%= @party.start_time.strftime('%m/%d/%y') %></p>
+    <p>Time: <%= @party.start_time.strftime('%I:%M %P') %></p>
     <br>
     <p>Party Time! Excellent!</p>
   </body>
