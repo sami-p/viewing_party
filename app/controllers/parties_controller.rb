@@ -7,14 +7,14 @@ class PartiesController < ApplicationController
 
   def create
     party_params[:start_date] = params[:date] + params[:start_time]
-    party = Party.create(party_params)
-    params[:Friend].each do |friend, check|
-      if check == "1"
-        PartyGuest.create(party: party, user: User.find(friend))
-        UserMailer.with(user: User.find(friend), party: party).viewing_email.deliver_later
-      end
-    end
+    party = Party.new(party_params)
     if !params[:date].empty? && party.save
+      params[:Friend].each do |friend, check|
+        if check == "1"
+          PartyGuest.create(party: party, user: User.find(friend))
+          UserMailer.with(user: User.find(friend), party: party).viewing_email.deliver_later
+        end
+      end
       redirect_to dashboard_index_path
     else
       flash[:notice] = 'Please fill in all fields correctly to create a new party. Thank you!'
