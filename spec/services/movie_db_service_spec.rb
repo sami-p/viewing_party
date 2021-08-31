@@ -17,7 +17,7 @@ RSpec.describe MovieDbService do
 
       expect(top_movies).to be_a(Array)
       expect(top_movies.length).to eq(20)
-      expect(top_movies.first.title).to eq("Wolfwalkers")
+      expect(top_movies.first.title).to eq("Pulp Fiction")
     end
   end
 

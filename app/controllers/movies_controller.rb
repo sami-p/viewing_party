@@ -6,6 +6,5 @@ class MoviesController < ApplicationController
    @movie_details = MovieDbService.get_movie(params[:id])
    @reviews = MovieDbService.list_reviews(params[:id])
    @cast = MovieDbService.get_cast(params[:id])
-
   end 
 end 
