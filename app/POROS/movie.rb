@@ -1,5 +1,5 @@
 class Movie
-  attr_reader :title, 
+  attr_reader :title,
               :vote_average,
               :id,
               :runtime,
@@ -15,15 +15,15 @@ class Movie
     @runtime          = data[:runtime]
     @backdrop_path    = data[:backdrop_path]
     @genres           = get_genre(data[:genres])
-  end     
+  end
 
   def render_image
     "https://image.tmdb.org/t/p/w500#{@backdrop_path}" unless @poster.nil?
   end
 
   def get_genre(data)
-    data.map do |d| 
+    data.map do |d|
       d[:name]
-    end 
+    end
   end
 end
