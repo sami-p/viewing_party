@@ -11,7 +11,7 @@ class PartiesController < ApplicationController
     params[:Friend].each do |friend, check|
       if check == "1"
         PartyGuest.create(party: party, user: User.find(friend))
-        UserMailer.with(user: friend, party: party).viewing_email.deliver_later
+        UserMailer.with(user: User.find(friend), party: party).viewing_email.deliver_later
       end
     end
     if !params[:date].empty? && party.save

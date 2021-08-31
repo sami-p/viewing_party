@@ -3,10 +3,9 @@ require "rails_helper"
 RSpec.describe UserMailer, :type => :mailer do
   describe "viewing email" do
     before :each do
-      @host = User.create(username: "party_host", email: "party@example.com", password: "test", password_confirmation: "test")
-      @user = User.create(username: "funbucket13", email: "funbucket@example.com", password: "test", password_confirmation: "test")
-      @movie = Movie.new({title: 'Forest Gump', vote_average: 8.5, id: 13, runtime: 140, image: "", backdrop_path: "", genres: [{name: 'Drama'}]})
-      @party = Party.create(host: @host, movie_title: 'Forest Gump', start_time: Time.parse('2021-08-31 20:00:00 UTC'), duration: 150, movie_runtime: 140)
+      @host = User.create!(username: "party_host", email: "party@example.com", password: "test", password_confirmation: "test")
+      @user = User.create!(username: "funbucket13", email: "funbucket@example.com", password: "test", password_confirmation: "test")
+      @party = Party.create!(host: @host, movie_title: 'Forest Gump', start_time: Time.parse('2021-08-31 20:00:00 UTC'), duration: 150, movie_runtime: 140)
     end
     let(:mail) { UserMailer.with(user: @user, party: @party).viewing_email }
 
