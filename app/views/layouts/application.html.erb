@@ -46,14 +46,15 @@
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarText">
-          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0" ">
+            </li>
               <li class="nav-item">
                 <a class="nav-link" href=<%= dashboard_index_path %>>Dashboard</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href=<%= discover_index_path %>>Discover</a>
               </li>
-          </ul>
+          </ul style="list-style-type: none;>
               <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle navbar-brand" style="color: white; font-size: xx-large;" href="#" id="navbarScrollingDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                   <%= current_user.username %>
@@ -69,22 +70,18 @@
    </nav>
   <% end %>
     <main>
-      <% if !current_user.nil? %>
-        <h1>My name is <%= current_user.username %>, and I like to party!</h1>
-      <% end %>
-
       <% flash.each do |name, msg| %>
-        <%= content_tag :div, msg, class: name %>
+        <%= content_tag :div, msg, class: name, style:"color: white;" %>
       <% end %>
       <%= yield %>
     </main>
     <footer>
       <img src="https://www.themoviedb.org/assets/2/v4/logos/v2/blue_square_2-d537fb228cf3ded904ef09b136fe3fec72548ebc1fea3fbbd1ad9e36364db38b.svg" alt="The MovieDB Logo" width="75px" style="margin:10px" >
       <div>
-        <p>
+        <p class="white_text">
           Thank you to <a href="https://www.themoviedb.org/about/logos-attribution">The MovieDB</a> for providing the movie data that is used in this application.
         </p>
-        <p>
+        <p class="white_text"> 
           Further citation information regarding the movie data used in this project can be found <a href="http://files.grouplens.org/datasets/movielens/ml-latest-small-README.html">here.</a>
         </p>
       </div>

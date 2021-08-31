@@ -5,8 +5,7 @@ RSpec.describe 'New Viewing Party Page' do
     @user = User.create!(username: "muffintoast", email: "muffintoast@aol.com", password: "test", password_confirmation: "test")
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@user)
 
-    @movie = Movies.new({ title: "Forrest Gump", vote_average: 8.5, id: 13, runtime: 142, backdrop_path: nil, genres: ["Comedy", "Drama", "Romance"]})
-
+    @movie = Movies.new({ title: "Forrest Gump", vote_average: 8.5, id: 13, runtime: 142, poster: nil})
     VCR.use_cassette('movie_db_movie_party') do
       visit new_movie_party_path(@movie.id)
     end

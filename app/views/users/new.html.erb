@@ -1,11 +1,21 @@
-<%= form_with model: @user, local: true do |form| %>
-  <%= form.label :username, 'Username:' %>
-  <%= form.text_field :username, id: :user_username %>
-  <%= form.label :email, 'Email:' %>
-  <%= form.text_field :email, id: :user_email %>
-  <%= form.label :password, 'Password:' %>
-  <%= form.password_field :password, id: :password %>
-  <%= form.label :password_confirmation, 'Password Confirmation:' %>
-  <%= form.password_field :password_confirmation, id: :password_confirmation %>
-  <%= form.submit 'Join the Party' %>
-<% end %>
+<div align="center" class="mb-3">
+  <%= form_with model: @user, local: true do |form| %>
+    <%= form.label :username, 'Username:', class:"white_text"  %>
+    <%= form.text_field :username, id: :user_username %>
+    <br>
+    <br>
+    <%= form.label :email, 'Email:', class:"white_text"  %>
+    <%= form.text_field :email, id: :user_email %>
+    <br>
+    <br>
+    <%= form.label :password, 'Password:', class:"white_text"  %>
+    <%= form.password_field :password, id: :password %>
+    <br>
+    <br>
+    <%= form.label :password_confirmation, 'Password Confirmation:', class:"white_text"  %>
+    <%= form.password_field :password_confirmation, id: :password_confirmation %>
+    <br>
+    <br>
+    <%= form.submit 'Join the Party', class:"btn btn-outline-light navbar-custom white_text" %>
+  <% end %>
+</div>
