@@ -1,18 +1,21 @@
 <h1>Discover Movies!</h1>
-
-<% if params[:sort] == nil %>
-  <%=link_to "Discover Top 40 Movies", sort: "top_40" %> 
-  <br>
-
-  <%= form_tag method: :get, sort: "search" do %>
-    <%= label_tag :movie_search, 'Search for Movies' %>
-    <%= text_field_tag :movie_search %><br>
-
-    <%= submit_tag 'Search' %>
+<div align="center" class="mb-3">
+  <% if params[:sort] == nil %>
+    <%=link_to "Discover Top 40 Movies", sort: "top_40", class:"btn btn-outline-light navbar-custom white_text" %> 
+    <br>
+    <%= form_tag method: :get, sort: "search" do %>
+      <br>
+      <br>
+        <%= label_tag :movie_search, 'Search for Movies', class:"white_text" %>
+      <br>
+      <br>
+        <%= text_field_tag :movie_search %>
+      <br>
+      <br>
+        <%= submit_tag 'Search', class:"btn btn-outline-light navbar-custom white_text" %>
+    <% end %>
   <% end %>
-
-<% end %>
-
+</div>
 
 <%  if params[:sort] == 'top_40' %>
   <%= render 'top_40' %>
@@ -21,22 +24,22 @@
 <% if params[:sort] == 'search' %>
   <%= render 'search' %>
 <% end %>
-
-
+<hr>
+<h1 style="text-align:center;">Upcoming Movies</h1>
 <div class="row row-cols-1 row-cols-md-3 mb-5">
   <% @upcoming_movies.each do |movie| %>
     <div class="mb-4 col-md-4">
-      <div class="card h-100 border-primary">
+      <div class="card h-100 border-secondary lucent">
         <% unless movie.poster.nil? %>
           <%= image_tag movie.render_image, class: 'card-img-top', width: "412" %>
         <% end %>
         <div class="card-body">
-          <h3 class="card-title"><%= movie.title %></h3>
-          <p class="card-text"> Vote Average: <%= movie.vote_average %> </p>
-          <p class="card-text"><%= movie.overview %></p>
+          <h3 class="card-title white_text"><%= movie.title %></h3>
+          <p class="card-text white_text"> Vote Average: <%= movie.vote_average %> </p>
+          <p class="card-text white_text"><%= movie.overview %></p>
         </div>
         <div class="card-footer d-grid gap-2">
-          <%= link_to "View", movie_path(movie.id), class: 'btn btn-outline-primary stretched-link' %>
+          <%= link_to "View", movie_path(movie.id), class: 'btn btn-outline-secondary stretched-link white_text' %>
         </div>
       </div>
     </div>

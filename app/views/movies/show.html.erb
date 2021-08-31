@@ -3,7 +3,7 @@
 <h1 style="text-align: center;"><%= @movie_details.title %></h1>
 
 
-<h2 style="text-align: center;"> Average Vote: <%= @movie_details.vote_average %> || Runtime: <%= @movie_details.runtime %> Minutes</h2>
+<h3 style="text-align: center; color: white;"> Average Vote: <%= @movie_details.vote_average %> || Runtime: <%= @movie_details.runtime %> Minutes</h3>
 <div class="row row-cols-1 row-cols-md-1 mb-5 center">
       <% unless @movie_details.poster.nil? %>
         <%= image_tag @movie_details.render_image, class: 'card-img-top', width: "412" %>
