@@ -4,7 +4,9 @@ class Movie
               :id,
               :runtime,
               :poster,
-              :genres
+              :genres,
+              :popularity,
+              :overview
 
 
   def initialize(data)
@@ -13,7 +15,9 @@ class Movie
     @id               = data[:id]
     @runtime          = data[:runtime]
     @poster           = data[:poster_path]
+    @popularity       = data[:popularity]
     @genres           = get_genre(data[:genres])
+    @overview         = data[:overview]
   end     
 
   def render_image
