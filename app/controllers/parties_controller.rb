@@ -13,12 +13,17 @@ class PartiesController < ApplicationController
         PartyGuests.create(party_id: party, user_id: friend)
       end
     end
-    redirect_to dashboard_index_path
+    if !params[:date].empty? && party.save
+      redirect_to dashboard_index_path
+    else
+      flash[:notice] = 'Please fill in all fields correctly to create a new party. Thank you!'
+      redirect_to new_movie_party_path
+    end
   end
 
   private
 
   def party_params
-    params.permit(:duration, :start_time, :movie_title, :host_id)
+    params.permit(:duration, :start_time, :movie_title, :host_id, :movie_runtime)
   end
 end

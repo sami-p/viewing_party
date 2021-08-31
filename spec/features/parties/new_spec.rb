@@ -7,10 +7,8 @@ RSpec.describe 'New Viewing Party Page' do
 
     @movie = Movies.new({ title: "Forrest Gump", vote_average: 8.5, id: 13, runtime: 142, backdrop_path: nil, genres: ["Comedy", "Drama", "Romance"]})
 
-    # Figure out API / VCR and cassette usage
     VCR.use_cassette('movie_db_movie_party') do
       visit new_movie_party_path(@movie.id)
-      # click_on "GoodFellas"
     end
   end
 
@@ -62,76 +60,84 @@ RSpec.describe 'New Viewing Party Page' do
         check "Friend_#{user_4.id}"
 
         click_on "Let's Party"
-        
+
         expect(current_path).to eq(dashboard_index_path)
       end
-      # should redirect back to dashboard where you see your viewing parties
     end
 
-    xit 'Sets default duration to movie runtime if duration is blank' do
-      @user_2 = User.create(username: "jelly", email: "jellybelly@comcast.net", password: "test2", password_confirmation: "test2")
-      @user_3 = User.create(username: "jam", email: "we.be.jammin@aol.com", password: "test3", password_confirmation: "test3")
-      @user_4 = User.create(username: "butter", email: "butterupbuttercup@isbutteracarb.com", password: "test4", password_confirmation: "test4")
+    it 'Sets default duration to movie runtime if duration is blank' do
+      user_2 = User.create(username: "jelly", email: "jellybelly@comcast.net", password: "test2", password_confirmation: "test2")
+      user_3 = User.create(username: "jam", email: "we.be.jammin@aol.com", password: "test3", password_confirmation: "test3")
+      user_4 = User.create(username: "butter", email: "butterupbuttercup@isbutteracarb.com", password: "test4", password_confirmation: "test4")
 
-      @user.friends << @user_2
-      @user.friends << @user_3
-      @user.friends << @user_4
-      @user.reload
+      friendship_1 = @user.friends << user_2
+      friendship_2 = @user.friends << user_3
+      friendship_3 = @user.friends << user_4
 
-      # Tests blank duration field : make sure to create default movie runtime functionality
-      fill_in :date, with: '09/14/21'
-      fill_in :start_time, with: '4:00 PM'
+      VCR.use_cassette('movie_db_movie_party') do
+        @user.reload
+        visit new_movie_party_path(@movie.id)
 
-      check "Friend_#{user_2.id}"
-      check "Friend_#{user_3.id}"
-      check "Friend_#{user_4.id}"
+        fill_in :date, with: '09/14/21'
+        fill_in :start_time, with: '4:00 PM'
 
-      click_on "Let's Party"
-      expect(current_path).to eq(dashboard_index_path)
-      # add expect to check duration of movie.runtime?
+        check "Friend_#{user_2.id}"
+        check "Friend_#{user_3.id}"
+        check "Friend_#{user_4.id}"
+
+        click_on "Let's Party"
+
+        expect(current_path).to eq(dashboard_index_path)
+      end
     end
 
-    xit 'Will not create the party id duration is set to less than movie runtime' do
-      @user_2 = User.create(username: "jelly", email: "jellybelly@comcast.net", password: "test2", password_confirmation: "test2")
-      @user_3 = User.create(username: "jam", email: "we.be.jammin@aol.com", password: "test3", password_confirmation: "test3")
-      @user_4 = User.create(username: "butter", email: "butterupbuttercup@isbutteracarb.com", password: "test4", password_confirmation: "test4")
+    it 'Will not create the party id duration is set to less than movie runtime' do
+      user_2 = User.create(username: "jelly", email: "jellybelly@comcast.net", password: "test2", password_confirmation: "test2")
+      user_3 = User.create(username: "jam", email: "we.be.jammin@aol.com", password: "test3", password_confirmation: "test3")
+      user_4 = User.create(username: "butter", email: "butterupbuttercup@isbutteracarb.com", password: "test4", password_confirmation: "test4")
 
-      @user.friends << @user_2
-      @user.friends << @user_3
-      @user.friends << @user_4
+      friendship_1 = @user.friends << user_2
+      friendship_2 = @user.friends << user_3
+      friendship_3 = @user.friends << user_4
 
-      # Set up duration field with verification of duration > movie.runtime
-      # Set up flash message that the duration must be greater than or equal to the movie runtime
-      fill_in :duration, with: 100
-      fill_in :date, with: '09/14/21'
-      fill_in :start_time, with: '4:00 PM'
+      VCR.use_cassette('movie_db_movie_party_2') do
+        @user.reload
+        visit new_movie_party_path(@movie.id)
 
-      check "#{@user_2.email}"
-      check "#{@user_3.email}"
-      check "#{@user_4.email}"
+        fill_in :duration, with: 100
+        fill_in :date, with: '09/14/21'
+        fill_in :start_time, with: '4:00 PM'
 
-      click_on "Let's Party"
-      expect(current_path).to eq(new_movie_party_path(@movie.id))
-      expect(page).to have_content('Cannot create Viewing Party if duration is less than movie runtime. Please enter correct duration.')
+        check "Friend_#{user_2.id}"
+        check "Friend_#{user_3.id}"
+        check "Friend_#{user_4.id}"
+
+        click_on "Let's Party"
+        expect(current_path).to eq(new_movie_party_path(@movie.id))
+        expect(page).to have_content('Please fill in all fields correctly to create a new party. Thank you!')
+      end
     end
 
-    xit 'will not create new party with fields other than duration are left blank' do
-      @user_2 = User.create(username: "jelly", email: "jellybelly@comcast.net", password: "test2", password_confirmation: "test2")
-      @user_3 = User.create(username: "jam", email: "we.be.jammin@aol.com", password: "test3", password_confirmation: "test3")
-      @user_4 = User.create(username: "butter", email: "butterupbuttercup@isbutteracarb.com", password: "test4", password_confirmation: "test4")
+    it 'will not create new party with fields other than duration are left blank' do
+      user_2 = User.create(username: "jelly", email: "jellybelly@comcast.net", password: "test2", password_confirmation: "test2")
+      user_3 = User.create(username: "jam", email: "we.be.jammin@aol.com", password: "test3", password_confirmation: "test3")
+      user_4 = User.create(username: "butter", email: "butterupbuttercup@isbutteracarb.com", password: "test4", password_confirmation: "test4")
 
-      @user.friends << @user_2
-      @user.friends << @user_3
-      @user.friends << @user_4
+      @user.friends << user_2
+      @user.friends << user_3
+      @user.friends << user_4
 
-      # Create verification of date and party time
-      # Create flash message for when the form is not filled out correctly
-      # Make sure form is correctly set up with date_time value for date and party time
-      fill_in :duration, with: 150
-      fill_in :start_time, with: '4:00 PM'
+      VCR.use_cassette('movie_db_movie_party_2') do
+        @user.reload
+        visit new_movie_party_path(@movie.id)
 
-      expect(current_path).to eq(new_movie_party_path(@movie.id))
-      expect(page).to have_content('Please fill in all necessary fields to create a new party. Thank you!')
+        fill_in :duration, with: 150
+        fill_in :start_time, with: '4:00 PM'
+
+        click_on "Let's Party"
+        expect(current_path).to eq(new_movie_party_path(@movie.id))
+        expect(page).to have_content('Please fill in all fields correctly to create a new party. Thank you!')
+      end
     end
 
     it 'will not render Friends Invited portion if user has no friends' do

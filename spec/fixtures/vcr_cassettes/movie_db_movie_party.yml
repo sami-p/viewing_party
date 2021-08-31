@@ -8,7 +8,7 @@ http_interactions:
       string: ''
     headers:
       User-Agent:
-      - Faraday v1.7.0
+      - Faraday v1.7.1
       Accept-Encoding:
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
       Accept:
@@ -25,7 +25,7 @@ http_interactions:
       Connection:
       - keep-alive
       Date:
-      - Mon, 30 Aug 2021 21:19:30 GMT
+      - Tue, 31 Aug 2021 17:31:49 GMT
       Server:
       - openresty
       Access-Control-Allow-Origin:
@@ -42,26 +42,26 @@ http_interactions:
       X-Memc-Key:
       - d10b32029baaec859982a438d886e1af63a1e0ba
       X-Memc-Age:
-      - '133'
+      - '8626'
       X-Memc-Expires:
-      - '15606'
+      - '8692'
       Etag:
-      - W/"1e34be2ccbe8dd7b179a3729b60a7d29"
+      - W/"2a9c7171e6ae4a78811173b21a57d18e"
       Vary:
       - Accept-Encoding
       X-Cache:
       - Hit from cloudfront
       Via:
-      - 1.1 45abe1833dce03139cbfcdfadefbc17b.cloudfront.net (CloudFront)
+      - 1.1 c61ed55833f98dc012e73350de5485f0.cloudfront.net (CloudFront)
       X-Amz-Cf-Pop:
-      - EWR53-P1
+      - ORD51-C4
       X-Amz-Cf-Id:
-      - W-MlMgQ6YBhDnPaO4zxl5iZSG_UDVLRhFBe-WH-qihb44lXbgpY-zw==
+      - 8HEAe-ZLhnFQ6XftfG-r76a4yJPzoiOYOsEKx3SnR1BslpBY0VoVNw==
       Age:
-      - '1152'
+      - '1965'
     body:
       encoding: ASCII-8BIT
       string: !binary |-
-        eyJhZHVsdCI6ZmFsc2UsImJhY2tkcm9wX3BhdGgiOiIvdGxFRnVJbGF4UlBYSVlWSFhiT1NBTUNmV3FrLmpwZyIsImJlbG9uZ3NfdG9fY29sbGVjdGlvbiI6bnVsbCwiYnVkZ2V0Ijo1NTAwMDAwMCwiZ2VucmVzIjpbeyJpZCI6MzUsIm5hbWUiOiJDb21lZHkifSx7ImlkIjoxOCwibmFtZSI6IkRyYW1hIn0seyJpZCI6MTA3NDksIm5hbWUiOiJSb21hbmNlIn1dLCJob21lcGFnZSI6IiIsImlkIjoxMywiaW1kYl9pZCI6InR0MDEwOTgzMCIsIm9yaWdpbmFsX2xhbmd1YWdlIjoiZW4iLCJvcmlnaW5hbF90aXRsZSI6IkZvcnJlc3QgR3VtcCIsIm92ZXJ2aWV3IjoiQSBtYW4gd2l0aCBhIGxvdyBJUSBoYXMgYWNjb21wbGlzaGVkIGdyZWF0IHRoaW5ncyBpbiBoaXMgbGlmZSBhbmQgYmVlbiBwcmVzZW50IGR1cmluZyBzaWduaWZpY2FudCBoaXN0b3JpYyBldmVudHPigJRpbiBlYWNoIGNhc2UsIGZhciBleGNlZWRpbmcgd2hhdCBhbnlvbmUgaW1hZ2luZWQgaGUgY291bGQgZG8uIEJ1dCBkZXNwaXRlIGFsbCBoZSBoYXMgYWNoaWV2ZWQsIGhpcyBvbmUgdHJ1ZSBsb3ZlIGVsdWRlcyBoaW0uIiwicG9wdWxhcml0eSI6NTguMTgsInBvc3Rlcl9wYXRoIjoiL2g1SjRXNHZleXhNWERNamVOeFpJNDZUc0hPYi5qcGciLCJwcm9kdWN0aW9uX2NvbXBhbmllcyI6W3siaWQiOjQsImxvZ29fcGF0aCI6Ii9meWNNWnQyNDJMVmphZ01CeVpPTFVHYkN2djMucG5nIiwibmFtZSI6IlBhcmFtb3VudCIsIm9yaWdpbl9jb3VudHJ5IjoiVVMifSx7ImlkIjoyMTkyMCwibG9nb19wYXRoIjpudWxsLCJuYW1lIjoiVGhlIFN0ZXZlIFRpc2NoIENvbXBhbnkiLCJvcmlnaW5fY291bnRyeSI6IiJ9XSwicHJvZHVjdGlvbl9jb3VudHJpZXMiOlt7Imlzb18zMTY2XzEiOiJVUyIsIm5hbWUiOiJVbml0ZWQgU3RhdGVzIG9mIEFtZXJpY2EifV0sInJlbGVhc2VfZGF0ZSI6IjE5OTQtMDctMDYiLCJyZXZlbnVlIjo2NzczODc3MTYsInJ1bnRpbWUiOjE0Miwic3Bva2VuX2xhbmd1YWdlcyI6W3siZW5nbGlzaF9uYW1lIjoiRW5nbGlzaCIsImlzb182MzlfMSI6ImVuIiwibmFtZSI6IkVuZ2xpc2gifV0sInN0YXR1cyI6IlJlbGVhc2VkIiwidGFnbGluZSI6IkxpZmUgaXMgbGlrZSBhIGJveCBvZiBjaG9jb2xhdGVzLi4ueW91IG5ldmVyIGtub3cgd2hhdCB5b3UncmUgZ29ubmEgZ2V0LiIsInRpdGxlIjoiRm9ycmVzdCBHdW1wIiwidmlkZW8iOmZhbHNlLCJ2b3RlX2F2ZXJhZ2UiOjguNSwidm90ZV9jb3VudCI6MjExMzJ9
-  recorded_at: Mon, 30 Aug 2021 21:38:42 GMT
+        eyJhZHVsdCI6ZmFsc2UsImJhY2tkcm9wX3BhdGgiOiIvdGxFRnVJbGF4UlBYSVlWSFhiT1NBTUNmV3FrLmpwZyIsImJlbG9uZ3NfdG9fY29sbGVjdGlvbiI6bnVsbCwiYnVkZ2V0Ijo1NTAwMDAwMCwiZ2VucmVzIjpbeyJpZCI6MzUsIm5hbWUiOiJDb21lZHkifSx7ImlkIjoxOCwibmFtZSI6IkRyYW1hIn0seyJpZCI6MTA3NDksIm5hbWUiOiJSb21hbmNlIn1dLCJob21lcGFnZSI6IiIsImlkIjoxMywiaW1kYl9pZCI6InR0MDEwOTgzMCIsIm9yaWdpbmFsX2xhbmd1YWdlIjoiZW4iLCJvcmlnaW5hbF90aXRsZSI6IkZvcnJlc3QgR3VtcCIsIm92ZXJ2aWV3IjoiQSBtYW4gd2l0aCBhIGxvdyBJUSBoYXMgYWNjb21wbGlzaGVkIGdyZWF0IHRoaW5ncyBpbiBoaXMgbGlmZSBhbmQgYmVlbiBwcmVzZW50IGR1cmluZyBzaWduaWZpY2FudCBoaXN0b3JpYyBldmVudHPigJRpbiBlYWNoIGNhc2UsIGZhciBleGNlZWRpbmcgd2hhdCBhbnlvbmUgaW1hZ2luZWQgaGUgY291bGQgZG8uIEJ1dCBkZXNwaXRlIGFsbCBoZSBoYXMgYWNoaWV2ZWQsIGhpcyBvbmUgdHJ1ZSBsb3ZlIGVsdWRlcyBoaW0uIiwicG9wdWxhcml0eSI6NTUuNzc3LCJwb3N0ZXJfcGF0aCI6Ii9oNUo0VzR2ZXl4TVhETWplTnhaSTQ2VHNIT2IuanBnIiwicHJvZHVjdGlvbl9jb21wYW5pZXMiOlt7ImlkIjo0LCJsb2dvX3BhdGgiOiIvZnljTVp0MjQyTFZqYWdNQnlaT0xVR2JDdnYzLnBuZyIsIm5hbWUiOiJQYXJhbW91bnQiLCJvcmlnaW5fY291bnRyeSI6IlVTIn0seyJpZCI6MjE5MjAsImxvZ29fcGF0aCI6bnVsbCwibmFtZSI6IlRoZSBTdGV2ZSBUaXNjaCBDb21wYW55Iiwib3JpZ2luX2NvdW50cnkiOiIifV0sInByb2R1Y3Rpb25fY291bnRyaWVzIjpbeyJpc29fMzE2Nl8xIjoiVVMiLCJuYW1lIjoiVW5pdGVkIFN0YXRlcyBvZiBBbWVyaWNhIn1dLCJyZWxlYXNlX2RhdGUiOiIxOTk0LTA3LTA2IiwicmV2ZW51ZSI6Njc3Mzg3NzE2LCJydW50aW1lIjoxNDIsInNwb2tlbl9sYW5ndWFnZXMiOlt7ImVuZ2xpc2hfbmFtZSI6IkVuZ2xpc2giLCJpc29fNjM5XzEiOiJlbiIsIm5hbWUiOiJFbmdsaXNoIn1dLCJzdGF0dXMiOiJSZWxlYXNlZCIsInRhZ2xpbmUiOiJMaWZlIGlzIGxpa2UgYSBib3ggb2YgY2hvY29sYXRlcy4uLnlvdSBuZXZlciBrbm93IHdoYXQgeW91J3JlIGdvbm5hIGdldC4iLCJ0aXRsZSI6IkZvcnJlc3QgR3VtcCIsInZpZGVvIjpmYWxzZSwidm90ZV9hdmVyYWdlIjo4LjUsInZvdGVfY291bnQiOjIxMTM1fQ==
+  recorded_at: Tue, 31 Aug 2021 18:04:34 GMT
 recorded_with: VCR 6.0.0
