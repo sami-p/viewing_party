@@ -21,3 +21,12 @@
 <% if params[:sort] == 'search' %>
   <%= render 'search' %>
 <% end %>
+
+
+
+<% @upcoming_movies.each do |movie| %>
+  <%= movie.title %>
+  <br>
+  <%= image_tag movie.render_image %> 
+  <br>
+<% end %>
