@@ -5,7 +5,12 @@ Rails.application.routes.draw do
   resources :dashboard, only: [:index]
   resources :friendships, only: [:create]
   resources :discover, only: [:index]
-  resources :movies, only: [:index, :show]
+  resources :movies, only: [:index, :show] do
+    resources :parties, only: [:new, :create]
+  end
+
+  post '/discover', to: 'discover#index'
+
 
   get '/login', to: 'users#login_form'
   post '/login', to: 'users#login'

@@ -17,6 +17,10 @@ class MovieDbService
     end
   end
 
+  def self.top_40
+    (top_movies_2_data + top_movies_1_data).flatten
+  end
+
   def self.get_movie(movie_id)
     response = Faraday.get("https://api.themoviedb.org/3/movie/#{movie_id}?api_key=#{ENV['MOVIE_API']}&language=en-US")
     body = response.body
@@ -39,6 +43,16 @@ class MovieDbService
     cast = JSON.parse(body, symbolize_names: true)
     cast[:cast][0..9].map do |actor|
       MovieCast.new(actor)
+    end
+  end
+
+  def self.movie_search(keyword)
+    return if keyword.nil?
+    response = Faraday.get("https://api.themoviedb.org/3/search/movie?api_key=#{ENV['MOVIE_API']}&query=#{keyword}&page=1&include_adult=false")
+    body = response.body
+    results = JSON.parse(body, symbolize_names: true)
+    results[:results].map do |r|
+      MovieSearch.new(r)
     end
   end
 end
