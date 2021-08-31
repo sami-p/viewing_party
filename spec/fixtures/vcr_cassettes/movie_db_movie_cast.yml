@@ -25,7 +25,7 @@ http_interactions:
       Connection:
       - keep-alive
       Date:
-      - Tue, 31 Aug 2021 15:19:15 GMT
+      - Tue, 31 Aug 2021 15:21:30 GMT
       Server:
       - openresty
       Access-Control-Allow-Origin:
@@ -42,9 +42,9 @@ http_interactions:
       X-Memc-Key:
       - bd37cbab4ee2081923d88e4033eaa7c133e4dda7
       X-Memc-Age:
-      - '6895'
+      - '7030'
       X-Memc-Expires:
-      - '10656'
+      - '10521'
       Etag:
       - W/"5b82dde78f283448eb27e60555a7b40c"
       Vary:
@@ -52,13 +52,13 @@ http_interactions:
       X-Cache:
       - Hit from cloudfront
       Via:
-      - 1.1 86e7490fde5a22b9c665579fff4df533.cloudfront.net (CloudFront)
+      - 1.1 cddde15c11afac53ac9fe7978dcfecd7.cloudfront.net (CloudFront)
       X-Amz-Cf-Pop:
-      - DFW55-C3
+      - DEN50-C2
       X-Amz-Cf-Id:
-      - n7OkanGlsaFxpfKA0_yTdjPcbU4NXq-PYI_dlmCXGfsdeHUthxBTVQ==
+      - tmQ5zqglDOTknfei6u8_AldXRrKaUVJ5MNzW513IUiDlz9xdb2tmtA==
       Age:
-      - '7826'
+      - '12073'
     body:
       encoding: ASCII-8BIT
       string: '{"id":155,"cast":[{"adult":false,"gender":2,"id":3894,"known_for_department":"Acting","name":"Christian
@@ -457,5 +457,5 @@ http_interactions:
         Peters","original_name":"Brian Peters","popularity":0.6,"profile_path":null,"credit_id":"5f9e04f65f2db1003924fd45","department":"Crew","job":"Stunts"},{"adult":false,"gender":1,"id":2449490,"known_for_department":"Crew","name":"Rudra
         Banerji","original_name":"Rudra Banerji","popularity":0.6,"profile_path":null,"credit_id":"5dc12ed2ef48890017181174","department":"Crew","job":"Set
         Production Assistant"}]}'
-  recorded_at: Tue, 31 Aug 2021 17:29:41 GMT
+  recorded_at: Tue, 31 Aug 2021 18:42:43 GMT
 recorded_with: VCR 6.0.0
