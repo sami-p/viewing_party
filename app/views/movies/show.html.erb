@@ -12,6 +12,8 @@ body {
 
 <h2 style="text-align: center;"> Average Vote: <%= @movie_details.vote_average %> || Runtime: <%= @movie_details.runtime %> Minutes</h2>
 
+<%= link_to 'Create Viewing Party', new_movie_party_path(@movie_details.id) %>
+
 <br>
 <br>
 <div class="accordion accordion-flush" id="accordionFlushExample">
