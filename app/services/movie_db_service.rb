@@ -7,7 +7,7 @@ class MovieDbService < ApiService
   def self.top_movies_2_data
     get_data("https://api.themoviedb.org/3/movie/top_rated?api_key=#{ENV['MOVIE_API']}&language=en-US&page=2")
   end
-
+  
   def self.get_movie(movie_id)
     get_data("https://api.themoviedb.org/3/movie/#{movie_id}?api_key=#{ENV['MOVIE_API']}&language=en-US")
   end

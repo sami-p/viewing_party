@@ -1,0 +1,13 @@
+<%= @user.username %> have been invited to a viewing party!
+===============================================
+
+You have been invited to <%= @party.host.username %> viewing party!
+
+Movie details
+--------------------------
+Movie Title: <%= @party.movie_title %>
+Duration of party: <%= @party.duration %>
+Date: <%= @party.start_time.strftime('%m/%d/%y') %>
+Time: <%= @party.start_time.strftime('%I:%M %P') %>
+
+Party Time! Excellent!

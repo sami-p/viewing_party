@@ -8,7 +8,6 @@ class Movie
               :popularity,
               :overview
 
-
   def initialize(data)
     @title            = data[:title]
     @vote_average     = data[:vote_average]
