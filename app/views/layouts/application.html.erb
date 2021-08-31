@@ -25,7 +25,6 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarText">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-          </li>
           <li class="nav-item">
             <a class="nav-link" href=<%= login_path %>>Login</a>
           </li>
@@ -57,7 +56,6 @@
               </li>
           </ul style="list-style-type: none;>
               <li class="nav-item dropdown">
-    
                 <a class="nav-link dropdown-toggle navbar-brand" style="color: white; font-size: xx-large;" href="#" id="navbarScrollingDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                   <%= current_user.username %>
                 </a>
@@ -70,7 +68,7 @@
         </div>
       </div>
    </nav>
-  <% end %> 
+  <% end %>
     <main>
       <% flash.each do |name, msg| %>
         <%= content_tag :div, msg, class: name, style:"color: white;" %>
