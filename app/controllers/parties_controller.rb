@@ -9,8 +9,9 @@ class PartiesController < ApplicationController
     party_params[:start_date] = params[:date] + params[:start_time]
     party = Party.create(party_params)
     params[:Friend].each do |friend, check|
-      if check == 1
-        PartyGuests.create(party_id: party, user_id: friend)
+      if check == "1"
+        PartyGuest.create(party: party, user: User.find(friend))
+        UserMailer.with(user: friend, party: party).viewing_email.deliver_later
       end
     end
     if !params[:date].empty? && party.save
