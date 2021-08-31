@@ -5,9 +5,9 @@ RSpec.describe MovieDbService do
     VCR.use_cassette('movie_db_top_movie_list_1') do
      top_movies = MovieDbService.top_movies_1_data
 
-     expect(top_movies).to be_a(Array)
-     expect(top_movies.length).to eq(20)
-     expect(top_movies.first.title).to eq("Dilwale Dulhania Le Jayenge")
+     expect(top_movies).to be_a(Hash)
+     expect(top_movies[:results].first).to have_key(:adult)
+     expect(top_movies[:results].first).to have_key(:title)
     end
   end
   #
@@ -15,9 +15,9 @@ RSpec.describe MovieDbService do
     VCR.use_cassette('movie_db_top_movie_list_2') do
       top_movies = MovieDbService.top_movies_2_data
 
-      expect(top_movies).to be_a(Array)
-      expect(top_movies.length).to eq(20)
-      expect(top_movies.first.title).to eq("Pulp Fiction")
+      expect(top_movies).to be_a(Hash)
+      expect(top_movies[:page]).to eq(2)
+      expect(top_movies[:results].count).to eq(20)
     end
   end
 
@@ -25,10 +25,9 @@ RSpec.describe MovieDbService do
     VCR.use_cassette('movie_db_movie_data') do
       movie = MovieDbService.get_movie(155)
 
-      expect(movie).to be_a(Movie)
-      expect(movie.title).to eq('The Dark Knight')
-      expect(movie.vote_average).to eq(8.5)
-      expect(movie.runtime).to eq(152)
+      expect(movie).to be_a(Hash)
+      expect(movie).to have_key(:homepage)
+      expect(movie).to have_key(:popularity)
     end
   end
 
@@ -36,9 +35,9 @@ RSpec.describe MovieDbService do
     VCR.use_cassette('movie_db_movie_review') do
       movie_reviews = MovieDbService.list_reviews(155)
 
-      expect(movie_reviews).to be_a(Array)
-      expect(movie_reviews.length).to eq(6)
-      expect(movie_reviews.first.author).to eq('tricksy')
+      expect(movie_reviews).to be_a(Hash)
+      expect(movie_reviews[:results].first).to have_key(:author)
+      expect(movie_reviews[:results].first).to have_key(:content)
     end
   end
 
@@ -46,9 +45,10 @@ RSpec.describe MovieDbService do
     VCR.use_cassette('movie_db_movie_cast') do
       movie_cast = MovieDbService.get_cast(155)
 
-      expect(movie_cast).to be_a(Array)
-      expect(movie_cast.length).to eq(10)
-      expect(movie_cast.first.name).to eq('Christian Bale')
+      expect(movie_cast).to be_a(Hash)
+      expect(movie_cast[:cast].first).to have_key(:adult)
+      expect(movie_cast[:cast].first).to have_key(:character)
+      expect(movie_cast[:cast].first).to have_key(:name)
     end
   end
 
@@ -56,9 +56,19 @@ RSpec.describe MovieDbService do
     VCR.use_cassette('movie_db_movie_search') do
       movie_search = MovieDbService.movie_search('Knight')
 
-      expect(movie_search).to be_a(Array)
-      expect(movie_search.length).to eq(20)
-      expect(movie_search.first.title).to eq("The Green Knight")
+      expect(movie_search).to be_a(Hash)
+      expect(movie_search[:results].first).to have_key (:overview)
+      expect(movie_search[:results].first).to have_key (:title)
+    end
+  end
+
+  it 'returns movie by search keyword' do
+    VCR.use_cassette('movie_db_upcoming_movies') do
+      upcoming_movies = MovieDbService.upcoming_movies
+
+      expect(upcoming_movies).to be_a(Hash)
+      expect(upcoming_movies[:results].first).to have_key (:overview)
+      expect(upcoming_movies[:results].first).to have_key (:title)
     end
   end
 end
