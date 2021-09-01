@@ -165,9 +165,9 @@ This project requires Ruby 2.7.2.
 
 * Database creation
     ```bash
-    $ rails db:{drop,create,migrate,seed}
-    Created database 'little_esty_shop_development'
-    Created database 'little_esty_shop_test'
+    $ rails db:{drop,create,migrate}
+    Created database 'viewing_party_development'
+    Created database 'viewing_party_test'
     ```
 
 * How to run the test suite
