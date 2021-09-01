@@ -162,7 +162,7 @@ This project requires Ruby 2.7.2.
    * visit [Movie DB API](https://developers.themoviedb.org/3/getting-started/introduction) to generate API key
    * Add API to Enviroment
   ```ruby 
-   # config/apllication.yml  
+   # config/application.yml  
    MOVIE_API: <<api_key>>
   ```
   * Interpolate API Key into endpoint calls
