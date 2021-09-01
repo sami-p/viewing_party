@@ -132,8 +132,6 @@ RSpec.describe 'Dashboard' do
 
       visit dashboard_index_path
 
-      save_and_open_page
-
       expect(page).to have_content("Parties You Are Invited To:")
       expect(page).to have_link("Goodfellas")
       expect(page).to have_content(party_2.start_time.strftime("%A, %B %d, %Y"))
