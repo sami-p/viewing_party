@@ -160,6 +160,10 @@ This project requires Ruby 2.7.2.
 * Consume API
   
    * visit [Movie DB API](https://developers.themoviedb.org/3/getting-started/introduction) to generate API key
+   * Install 'Figaro' gem 
+      ```
+      bundle exec figaro install
+      ```
    * Add API to Enviroment
   ```ruby 
    # config/application.yml  
