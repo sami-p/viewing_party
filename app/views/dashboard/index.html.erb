@@ -19,7 +19,7 @@
 <section class="parties">
   <h3>Parties You Are Invited To:</h3>
   <% current_user.parties.each do |party| %>
-    <p>Party Movie: <%= party.movie_title %>
+    <p>Party Movie: <%= link_to "#{party.movie_title}", movie_path(party.movie_title) %>
       <br>
        Date: <%= party.start_time.strftime("%A, %B %d, %Y") %><p>
        Guests:
@@ -35,7 +35,7 @@
 
   <h3>Parties You Are Hosting:</h3>
   <% Party.parties_by_host(current_user).each do |party| %>
-    <p>Party Movie: <%= party.movie_title %>
+    <p>Party Movie: <%= link_to "#{party.movie_title}", movie_path(party.movie_title) %>
     <br>
      Date: <%= party.start_time.strftime("%A, %B %d, %Y") %><p>
      Guests:

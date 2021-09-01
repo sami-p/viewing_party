@@ -133,13 +133,13 @@ RSpec.describe 'Dashboard' do
       save_and_open_page
 
       expect(page).to have_content("Parties You Are Invited To:")
-      expect(page).to have_content("Goodfellas")
+      expect(page).to have_link("Goodfellas")
       expect(page).to have_content(party_2.start_time.strftime("%A, %B %d, %Y"))
       expect(page).to have_content(user.username)
       expect(page).to have_content(user_3.username)
 
       expect(page).to have_content("Parties You Are Hosting:")
-      expect(page).to have_content("Forrest Gump")
+      expect(page).to have_link("Forrest Gump")
       expect(page).to have_content(party.start_time.strftime("%A, %B %d, %Y"))
       expect(page).to have_content(user_2.username)
       expect(page).to have_content(user_3.username)
