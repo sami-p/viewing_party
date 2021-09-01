@@ -85,7 +85,7 @@ RSpec.describe 'Dashboard' do
       end
     end
 
-    it 'can log user out' do 
+    it 'can log user out' do
       user = User.create(username: "july5", email: "july5@example.com", password: "redwhiteandblue07", password_confirmation: "redwhiteandblue07")
 
       allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
@@ -93,9 +93,61 @@ RSpec.describe 'Dashboard' do
       visit dashboard_index_path
 
       expect(page).to have_content('july5')
-      
+
       click_on 'Logout'
       expect(current_path).to eq(root_path)
+    end
+  end
+
+  describe 'Viewing Parties' do
+    it 'lists all of your viewing parties' do
+      user = User.create(username: "smores12", email: "marshmallow@grahamcrackers.com", password: "chocolate&fire", password_confirmation: "chocolate&fire")
+      allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
+
+      user_2 = User.create(username: "hotcoco", email: "tiny_marshmallows@aol.com", password: "test", password_confirmation: "test")
+      user_3 = User.create(username: "applecider", email: "cinnamon.apple@comcast.net", password: "test", password_confirmation: "test")
+      user_4 = User.create(username: "bonfire", email: "lets.go.camping@gmail.com", password: "test", password_confirmation: "test")
+
+      user.friends << user_2
+      user.friends << user_3
+      user.friends << user_4
+
+      user_2.friends << user
+      user_2.friends << user_3
+      user_2.friends << user_4
+
+      movie = Movies.new({ title: "Forrest Gump", vote_average: 8.5, id: 13, runtime: 142, backdrop_path: nil, genres: ["Comedy", "Drama", "Romance"]})
+      movie_2 = Movies.new({ title: "Goodfellas", vote_average: 9, id: 14, runtime: 145, backdrop_path: nil, genres: ["Comedy", "Drama", "Romance"]})
+
+      party = Party.create(host: user, movie_title: "Forrest Gump", start_time: Time.parse('2021-10-31 20:00:00 UTC'), duration: 155, movie_runtime: 150)
+      party_2 = Party.create(host: user_2, movie_title: "Goodfellas", start_time: Time.parse('2021-10-25 20:00:00 UTC'), duration: 170, movie_runtime: 150)
+
+      party.users << user_2
+      party.users << user_3
+      party.users << user_4
+
+      party_2.users << user
+      party_2.users << user_3
+      party_2.users << user_4
+
+      visit dashboard_index_path
+
+      save_and_open_page
+
+      expect(page).to have_content("Parties You Are Invited To:")
+      expect(page).to have_link("Goodfellas")
+      expect(page).to have_content(party_2.start_time.strftime("%A, %B %d, %Y"))
+      expect(page).to have_content(user.username)
+      expect(page).to have_content(user_3.username)
+      expect(page).to have_content(user_4.username)
+      expect(page).to have_content("Host: #{user_2.username}")
+
+      expect(page).to have_content("Parties You Are Hosting:")
+      expect(page).to have_link("Forrest Gump")
+      expect(page).to have_content(party.start_time.strftime("%A, %B %d, %Y"))
+      expect(page).to have_content(user_2.username)
+      expect(page).to have_content(user_3.username)
+      expect(page).to have_content(user_4.username)
     end
   end
 end
