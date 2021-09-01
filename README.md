@@ -5,17 +5,12 @@
 [![Stargazers][stars-shield]][stars-url]
 [![Forks][forks-shield]][forks-url]
 # Welcome to Viewing Party - We Are Here To party
-<p align="center">
-  <img src="https://user-images.githubusercontent.com/74567704/128578697-90c82e24-7f61-4576-b037-ae89bc9eff72.png" alt="little_etsy_shop_db_schema"/>
-</p>
+[![Screen-Shot-2021-09-01-at-11-01-23-AM.png](https://i.postimg.cc/JhXyQGN5/Screen-Shot-2021-09-01-at-11-01-23-AM.png)](https://postimg.cc/XZV7jNDr)
 
-<p align="center">
-  <img src="https://i.postimg.cc/wTgJcM1T/Screen-Shot-2021-07-27-at-3-06-26-PM.png" alt="little_etsy_shop_flow"/>
-</p>
+### Schema
+[![Screen-Shot-2021-08-31-at-5-20-25-PM.png](https://i.postimg.cc/fTPhTkxZ/Screen-Shot-2021-08-31-at-5-20-25-PM.png)](https://postimg.cc/jLy1Mxgk)
 
-<!-- ![Relational Rails Welcome Screen](https://user-images.githubusercontent.com/74567704/124805908-1e01ff80-df2a-11eb-92bc-3a1536aa9c84.png) -->
-
-Find the [project spec here](https://github.com/turingschool-examples/little-esty-shop).
+Find the [project spec here](https://github.com/turingschool-examples/viewing_party/projects/1).
 ## Table of Contents
 
 - [Overview](#overview)
@@ -27,20 +22,21 @@ Find the [project spec here](https://github.com/turingschool-examples/little-est
 
 ### <ins>Overview</ins>
 
-[Little Esty Shop](https://github.com/bfl3tch/little-esty-shop) is a 10-day, 4 person project, during Mod 2 of 4 for Turing School's Back End Engineering Program.
+[Viewing Party](https://github.com/sami-p/viewing_party) is a 10-day, 3 person project, during Mod 3 of 4 for Turing School's Back End Engineering Program.
 
-Our challenge was to build a functioning web app consisting of multiple relational databases to model the popular e-commerce web site *Etsy*.
+Our challenge was to build a functioning web app consisting of multiple relational databases and pull from multiple APIs to create friendships that can make viewing parties associated with a movie.
 
 Learning goals and areas of focus consisted of:
 
-- Apply principles of flow control across multiple methods
-- Design a one to many relationship using a schema designer
-- Write migrations to create tables with columns of varying data types and foreign keys.
-- Use Rails to create web pages that allow users to CRUD resources
-- Create instance and class methods on a Rails model that use ActiveRecord methods and helpers
-- Write model and feature tests that fully cover data logic and potential user behavior
+- Consume JSON APIs that require authentication 
+- Build an application that requires basic authentication 
+- Organize and refactor code to be more maintainable 
+- Implement a self-referential relationship in ActiveRecord 
+- Apply RuboCop’s style guide for code quality 
+- Utilize Continuous Integration using Travis CI 
+ -Deploy to Heroku 
 
-[Technical Requirements](https://github.com/turingschool-examples/little-esty-shop/blob/main/doc/user_stories.md)
+[Technical Requirements](https://github.com/turingschool-examples/viewing_party/projects/1)
 
 ### <ins>Tools Used</ins>
 - Ruby 2.7.2
@@ -81,14 +77,14 @@ Learning goals and areas of focus consisted of:
 
 <!-- MARKDOWN LINKS & IMAGES -->
 
-[contributors-shield]: https://img.shields.io/github/contributors/bfl3tch/little-esty-shop.svg?style=flat-square
-[contributors-url]: https://github.com/bfl3tch/little-esty-shop/graphs/contributors
-[forks-shield]: https://img.shields.io/github/forks/bfl3tch/little-esty-shop.svg?style=flat-square
-[forks-url]: https://github.com/bfl3tch/little-esty-shop/network/members
-[stars-shield]: https://img.shields.io/github/stars/bfl3tch/little-esty-shop.svg?style=flat-square
-[stars-url]: https://github.com/bfl3tch/little-esty-shop/stargazers
-[issues-shield]: https://img.shields.io/github/issues/bfl3tch/little-esty-shop.svg?style=flat-square
-[issues-url]: https://github.com/bfl3tch/little-esty-shop/issues
+[contributors-shield]: https://img.shields.io/github/contributors/sami-p/viewing_party.svg?style=flat-square
+[contributors-url]: https://github.com/sami-p/viewing_party
+[forks-shield]: https://img.shields.io/github/forks/sami-p/viewing_party.svg?style=flat-square
+[forks-url]: https://github.com/sami-p/viewing_party/network/members
+[stars-shield]: https://img.shields.io/github/stars/sami-p/viewing_party.svg?style=flat-square
+[stars-url]: https://github.com/sami-p/viewing_party/stargazers
+[issues-shield]: https://img.shields.io/github/issues/sami-p/viewing_party.svg?style=flat-square
+[issues-url]: https://github.com/sami-p/viewing_party/issues
 <!--
 
 
@@ -118,25 +114,28 @@ Things you may want to cover:
 * ... -->
 
 
-# Little Esty Shop
+# Viewing Party
 
 ## Background and Description
 
-"Little Esty Shop" is a group project that requires students to build a fictitious e-commerce platform where merchants and admins can manage inventory and fulfill customer invoices.
+"For this project, you will be building an application to explore movies and create a viewing party event for you and your friends to watch a movie together. The application will require basic authentication."
 
 ## Learning Goals
-- Practice designing a normalized database schema and defining model relationships
-- Utilize advanced routing techniques including namespacing to organize and group like functionality together.
-- Utilize advanced active record techniques to perform complex database queries
-- Practice consuming a public API while utilizing POROs as a way to apply OOP principles to organize code
+- Consume JSON APIs that require authentication 
+- Build an application that requires basic authentication 
+- Organize and refactor code to be more maintainable 
+- Implement a self-referential relationship in ActiveRecord 
+- Apply RuboCop’s style guide for code quality 
+- Utilize Continuous Integration using Travis CI 
+- Deploy to Heroku 
 
 ## Requirements
-- must use Rails 5.2.x
-- must use PostgreSQL
-- all code must be tested via feature tests and model tests, respectively
-- must use GitHub branching, team code reviews via GitHub comments, and github projects to track progress on user stories
-- must include a thorough README to describe the project
-- must deploy completed code to Heroku
+- Use RuboCop in project to enforce style guide
+- Deploy to Heroku
+- Use TravisCI for Continuous Integration
+- Consume The Movie DB API
+- Implement Basic Auth
+- Choose one exploration option to complete
 
 ## Setup
 
@@ -149,15 +148,6 @@ This project requires Ruby 2.7.2.
     * `rails db:create`
 * Run the test suite with `bundle exec rspec`.
 * Run your development server with `rails s` to see the app in action.
-
-## Phases
-
-1. [Database Setup](./doc/db_setup.md)
-1. [User Stories](./doc/user_stories.md)
-1. [Extensions](./doc/extensions.md)
-1. [Evaluation](./doc/evaluation.md)
-
-
 
 #### Project Configurations
 
@@ -175,19 +165,14 @@ This project requires Ruby 2.7.2.
 
 * Database creation
     ```bash
-    $ rails db:{drop,create,migrate,seed}
-    Created database 'little_esty_shop_development'
-    Created database 'little_esty_shop_test'
-    ```
-
-* Database initialization
-    ```bash
-    $ rake csv_load:all
+    $ rails db:{drop,create,migrate}
+    Created database 'viewing_party_development'
+    Created database 'viewing_party_test'
     ```
 
 * How to run the test suite
     ```bash
-    $ bundle exec rspec
+    $ bundle exec rspec -fd
     ```
 
 * [Local Deployment](http://localhost:3000), for testing:
@@ -205,4 +190,4 @@ This project requires Ruby 2.7.2.
 
     ```
 
-* [Heroku Deployment](https://agile-ravine-84109.herokuapp.com/), for production
+* [Heroku Deployment](https://morning-caverns-25715.herokuapp.com/), for production

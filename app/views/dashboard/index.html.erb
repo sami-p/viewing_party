@@ -1,17 +1,20 @@
+<% if !current_user.nil? %>
+  <h1>My name is <%= current_user.username %>, and I like to party!</h1>
+<% end %>
 
-
-
-<section class="friends">
-  <%= form_with model: @friendships, method: :post, local: true do |f| %>
-    <%= f.text_field :search, id: :search, :value => "Friend's Email" %>
-    <%= f.submit "Add Friend" %>
-  <% end %>
-  <h3>Friends</h3>
-  <% if current_user.friends.empty? %>
-    <p>You currently have no friends.</p>
-  <% else %>
-    <% current_user.friends.each do |friend| %>
-      <p><%= friend.username %></p>
+<div align="center" class="mb-3">
+  <section class="friends white_text">
+    <%= form_with model: @friendships, method: :post, local: true do |f| %>
+      <%= f.text_field :search, id: :search, :value => "Friend's Email" %>
+      <%= f.submit "Add Friend" %>
+    <% end %>
+    <h3 class="white_text">Friends</h3>
+    <% if current_user.friends.empty? %>
+      <p class="white_text">You currently have no friends.</p>
+    <% else %>
+      <% current_user.friends.each do |friend| %>
+        <p class="white_text"><%= friend.username %></p>
+      <% end %>
     <% end %>
   <% end %>
 </section>
@@ -50,3 +53,4 @@
      <% end %></ul>
   <% end %>
 </section>
+</div>
