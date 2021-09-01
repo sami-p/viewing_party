@@ -22,7 +22,7 @@
     <p>Party Movie: <%= link_to "#{party.movie_title}", movie_path(party.movie_title) %>
       <br>
        Date: <%= party.start_time.strftime("%A, %B %d, %Y") %><p>
-       Guests:
+       Guest List:
   <ul><% party.users.each do |user| %>
       <% if user == current_user %>
         <b><%= user.username %></b>
@@ -37,8 +37,10 @@
   <% Party.parties_by_host(current_user).each do |party| %>
     <p>Party Movie: <%= link_to "#{party.movie_title}", movie_path(party.movie_title) %>
     <br>
-     Date: <%= party.start_time.strftime("%A, %B %d, %Y") %><p>
-     Guests:
+     Date: <%= party.start_time.strftime("%A, %B %d, %Y") %>
+     <br>
+     Host: <%= party.host.username %> (you)<p>
+     Guest List:
      <ul>
      <% party.users.each do |user| %>
        <%= user.username %>

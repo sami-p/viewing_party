@@ -114,6 +114,7 @@ RSpec.describe 'Dashboard' do
 
       user_2.friends << user
       user_2.friends << user_3
+      user_2.friends << user_4
 
       movie = Movies.new({ title: "Forrest Gump", vote_average: 8.5, id: 13, runtime: 142, backdrop_path: nil, genres: ["Comedy", "Drama", "Romance"]})
       movie_2 = Movies.new({ title: "Goodfellas", vote_average: 9, id: 14, runtime: 145, backdrop_path: nil, genres: ["Comedy", "Drama", "Romance"]})
@@ -127,6 +128,7 @@ RSpec.describe 'Dashboard' do
 
       party_2.users << user
       party_2.users << user_3
+      party_2.users << user_4
 
       visit dashboard_index_path
 
@@ -137,6 +139,7 @@ RSpec.describe 'Dashboard' do
       expect(page).to have_content(party_2.start_time.strftime("%A, %B %d, %Y"))
       expect(page).to have_content(user.username)
       expect(page).to have_content(user_3.username)
+      expect(page).to have_content(user_4.username)
 
       expect(page).to have_content("Parties You Are Hosting:")
       expect(page).to have_link("Forrest Gump")
