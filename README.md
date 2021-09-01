@@ -114,7 +114,7 @@ Things you may want to cover:
 * ... -->
 
 
-# Little Esty Shop
+# Viewing Party
 
 ## Background and Description
 
