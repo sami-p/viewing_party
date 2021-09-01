@@ -17,8 +17,7 @@ class Movie
     @popularity       = data[:popularity]
     @genres           = get_genre(data[:genres])
     @overview         = data[:overview]
-  end     
-
+  end
 
   def render_image
     "https://image.tmdb.org/t/p/w500#{@poster}" unless @poster.nil?

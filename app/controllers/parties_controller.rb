@@ -1,5 +1,4 @@
 class PartiesController < ApplicationController
-
   def new
     @movie = MovieFacade.new.get_movie(params[:movie_id])
     @friends = current_user.friends
@@ -10,7 +9,7 @@ class PartiesController < ApplicationController
     party = Party.new(party_params)
     if !params[:date].empty? && party.save
       params[:Friend].each do |friend, check|
-        if check == "1"
+        if check == '1'
           PartyGuest.create(party: party, user: User.find(friend))
           UserMailer.with(user: User.find(friend), party: party).viewing_email.deliver_later
         end

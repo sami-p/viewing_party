@@ -1,5 +1,5 @@
 class UpcomingMovies
-  attr_reader :title, 
+  attr_reader :title,
               :vote_average,
               :id,
               :poster,
@@ -11,9 +11,9 @@ class UpcomingMovies
     @id               = data[:id]
     @poster           = data[:poster_path]
     @overview         = data[:overview]
-  end     
+  end
 
   def render_image
     "https://image.tmdb.org/t/p/w500#{@poster}" unless @poster.nil?
   end
-end 
+end

@@ -9,7 +9,6 @@ class MovieSearch
     @poster = data[:poster_path]
   end
 
-
   def render_image
     "https://image.tmdb.org/t/p/w500#{@poster}" unless @poster.nil?
   end
