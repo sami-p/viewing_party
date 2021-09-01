@@ -5,6 +5,9 @@
 [![Stargazers][stars-shield]][stars-url]
 [![Forks][forks-shield]][forks-url]
 # Welcome to Viewing Party - We Are Here To party
+[![Screen-Shot-2021-09-01-at-11-01-23-AM.png](https://i.postimg.cc/JhXyQGN5/Screen-Shot-2021-09-01-at-11-01-23-AM.png)](https://postimg.cc/XZV7jNDr)
+
+### Schema
 [![Screen-Shot-2021-08-31-at-5-20-25-PM.png](https://i.postimg.cc/fTPhTkxZ/Screen-Shot-2021-08-31-at-5-20-25-PM.png)](https://postimg.cc/jLy1Mxgk)
 
 Find the [project spec here](https://github.com/turingschool-examples/viewing_party/projects/1).
