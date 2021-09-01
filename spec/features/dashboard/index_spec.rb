@@ -140,6 +140,7 @@ RSpec.describe 'Dashboard' do
       expect(page).to have_content(user.username)
       expect(page).to have_content(user_3.username)
       expect(page).to have_content(user_4.username)
+      expect(page).to have_content("Host: #{user_2.username}")
 
       expect(page).to have_content("Parties You Are Hosting:")
       expect(page).to have_link("Forrest Gump")

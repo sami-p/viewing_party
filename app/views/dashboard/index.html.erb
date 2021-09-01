@@ -21,7 +21,9 @@
   <% current_user.parties.each do |party| %>
     <p>Party Movie: <%= link_to "#{party.movie_title}", movie_path(party.movie_title) %>
       <br>
-       Date: <%= party.start_time.strftime("%A, %B %d, %Y") %><p>
+       Date: <%= party.start_time.strftime("%A, %B %d, %Y") %>
+       <br>
+       Host: <%= party.host.username %><p>
        Guest List:
   <ul><% party.users.each do |user| %>
       <% if user == current_user %>
