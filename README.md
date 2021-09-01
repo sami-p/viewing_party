@@ -5,9 +5,7 @@
 [![Stargazers][stars-shield]][stars-url]
 [![Forks][forks-shield]][forks-url]
 # Welcome to Viewing Party - We Are Here To party
-<p align="center">
-  <img src="https://user-images.githubusercontent.com/74567704/128578697-90c82e24-7f61-4576-b037-ae89bc9eff72.png" alt="little_etsy_shop_db_schema"/>
-</p>
+[![Screen-Shot-2021-08-31-at-5-20-25-PM.png](https://i.postimg.cc/fTPhTkxZ/Screen-Shot-2021-08-31-at-5-20-25-PM.png)](https://postimg.cc/jLy1Mxgk)
 
 <p align="center">
   <img src="https://i.postimg.cc/wTgJcM1T/Screen-Shot-2021-07-27-at-3-06-26-PM.png" alt="little_etsy_shop_flow"/>
