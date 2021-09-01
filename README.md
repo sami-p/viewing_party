@@ -156,6 +156,26 @@ This project requires Ruby 2.7.2.
     $ ruby -v
     ruby 2.7.2p137 (2020-10-01 revision 5445e04352) [x86_64-darwin20]
     ```
+    
+* Consume API
+  
+   * visit [Movie DB API](https://developers.themoviedb.org/3/getting-started/introduction) to generate API key
+   * Add API to Enviroment
+  ```ruby 
+   # config/apllication.yml  
+   MOVIE_API: <<api_key>>
+  ```
+  * Interpolate API Key into endpoint calls
+    *  *Example:
+  ```ruby
+     class MovieDbService < ApiService
+     
+        def self.top_movies_1_data
+          get_data("https://api.themoviedb.org/3/movie/top_rated?api_key=#{ENV['MOVIE_API']}&language=en-US&page=1")
+        end
+     
+     end 
+  ```
 
 * [System dependencies](https://github.com/bfl3tch/little-esty-shop/blob/main/Gemfile)
     ```bash
