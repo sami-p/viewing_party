@@ -1,27 +1,28 @@
-<h2>Your Party's Featured Film: <%= @movie.title %></h2>
-
+<h2 class="white_text">Your Party's Featured Film: <%= @movie.title %></h2>
+<div align="center" class="mb-3">
 <%= form_with model: @party, url: movie_parties_path(@movie.id), method: :post, local: true do |form| %>
-  <%= form.label 'Duration:' %>
-  <%= form.text_field :duration, value: @movie.runtime %> <span>Minutes</span>
+  <%= form.label 'Duration:', class:"white_text" %>
+  <%= form.text_field :duration, value: @movie.runtime %> <span , class="white_text">Minutes</span>
   <br>
-  <%= form.label 'Date:' %>
+  <%= form.label 'Date:', class:"white_text" %>
   <%= form.date_field :date %>
   <br>
-  <%= form.label 'Party Time:' %>
+  <%= form.label 'Party Time:', class:"white_text" %>
   <%= form.time_field :start_time %>
   <%= form.hidden_field :movie_title, value: @movie.title %>
   <%= form.hidden_field :host_id, value: current_user.id %>
   <%= form.hidden_field :movie_runtime, value: @movie.runtime %>
   <br>
   <% unless @friends == nil %>
-    <%= form.label 'Friends Invited:' %>
+    <%= form.label 'Friends Invited:', class:"white_text" %>
     <br>
     <% @friends.each do |friend| %>
       <%= check_box("Friend", friend.id) %>
-      <%= friend.email %>
+      <p class="white_text"><%= friend.email %> </p>
       <br>
     <% end %>
   <% end %>
   <br>
-  <%= form.submit "Let's Party" %>
+  <%= form.submit "Let's Party", class:"btn btn-outline-light navbar-custom white_text" %>
 <% end %>
+</div>

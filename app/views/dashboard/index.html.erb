@@ -19,38 +19,40 @@
   </section>
 </div>
 
+<div align="center" class="mb-3">
 <section class="parties">
-  <h3>Parties You Are Invited To:</h3>
+  <h3 class="white_text">Parties You Are Invited To:</h3>
   <% current_user.parties.each do |party| %>
-    <p>Party Movie: <%= link_to "#{party.movie_title}", movie_path(party.movie_title) %>
+    <p class="white_text">Party Movie: <%= link_to "#{party.movie_title}", movie_path(party.movie_title) %>
       <br>
-       Date: <%= party.start_time.strftime("%A, %B %d, %Y") %>
-       <br>
-       Host: <%= party.host.username %><p>
-       Guest List:
+      Date: <%= party.start_time.strftime("%A, %B %d, %Y") %>
+      <br>
+      Host: <%= party.host.username %>
+      Guest List:
+    </p>
   <ul><% party.users.each do |user| %>
       <% if user == current_user %>
         <b><%= user.username %></b>
       <% else %>
         <br>
-        <%= user.username %>
+        <p class="white_text"><%= user.username %></p>
       <% end %>
     <% end %></ul>
   <% end %>
 
-  <h3>Parties You Are Hosting:</h3>
+  <h3 class="white_text">Parties You Are Hosting:</h3>
   <% Party.parties_by_host(current_user).each do |party| %>
-    <p>Party Movie: <%= link_to "#{party.movie_title}", movie_path(party.movie_title) %>
+    <p class="white_text">Party Movie: <%= link_to "#{party.movie_title}", movie_path(party.movie_title) %>
     <br>
      Date: <%= party.start_time.strftime("%A, %B %d, %Y") %>
      <br>
-     Host: <%= party.host.username %> (you)<p>
+     Host: <%= party.host.username %> (you)
      Guest List:
      <ul>
+     </p>
      <% party.users.each do |user| %>
-       <%= user.username %>
-       <br>
+       <p class="white_text"><%= user.username %></p>
      <% end %></ul>
   <% end %>
 </section>
-
+</div>
