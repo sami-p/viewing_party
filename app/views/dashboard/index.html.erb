@@ -15,3 +15,18 @@
     <% end %>
   <% end %>
 </section>
+
+<section class="parties">
+  <h3>Parties You Are Invited To:</h3>
+  <% current_user.parties.each do |party| %>
+    <span>Party Movie: <span><%= party.movie_title %>
+    <br>
+    <span>Date: <span><%= party.start_time.strftime("%A, %B %d, %Y") %>
+  <% end %>
+  <h3>Parties You Are Hosting:</h3>
+  <% Party.parties_by_host(current_user).each do |party| %>
+    <span>Party Movie: <span><%= party.movie_title %>
+    <br>
+    <span>Date: <span><%= party.start_time.strftime("%A, %B %d, %Y") %>
+  <% end %>
+</section>
