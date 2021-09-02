@@ -7,7 +7,7 @@ class PartiesController < ApplicationController
   def create
     party_params[:start_date] = params[:date] + params[:start_time]
     party = Party.new(party_params)
-    if !params[:date].empty? && party.save
+    if !params[:date].empty? && party.save && !params[:Friend].nil?
       params[:Friend].each do |friend, check|
         if check == '1'
           PartyGuest.create(party: party, user: User.find(friend))
